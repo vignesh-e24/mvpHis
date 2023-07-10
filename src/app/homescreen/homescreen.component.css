@@ -1,0 +1,13 @@
+.container {
+    height: 70vh;
+  }
+  
+  .sidenav {
+    width: 120px;
+  }
+  
+  .toolbar {
+    background-color: #f44336; /* Customize the background color as needed */
+    color: white; /* Customize the text color as needed */
+  }
+  
