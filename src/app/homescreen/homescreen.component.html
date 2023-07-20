@@ -1,17 +1,30 @@
+<mat-toolbar class="toolbar">
+    <!-- Content for the top toolbar -->
+    <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+</mat-toolbar>
 <mat-sidenav-container class="container">
-    <mat-sidenav mode="side" opened class="sidenav">
-        <!-- Content for the sidenav -->
-        <p>Search</p>
-        <p>Menu </p>
-        <p>Module 1</p>
-        <p>Module 2</p>
+    <mat-sidenav #sidenav mode="side" opened="true">
+        <mat-nav-list>
+            <mat-form-field class="search-field">
+                <mat-icon matPrefix>search</mat-icon>
+                <input matInput placeholder="Search" />
+            </mat-form-field>
+            <a mat-list-item [routerLink]="['HIS']">Hospital Information System (HIS)</a>
+            <a mat-list-item [routerLink]="['LIS']">Laboratory Information System (LIS)</a>
+            <a mat-list-item [routerLink]="['PACS']">Picture Archiving and Communication System (PACS)</a>
+            <a mat-list-item [routerLink]="['RIS']">Radiology Information System (RIS)</a>
+            <a mat-list-item [routerLink]="['HIE']">Health Information Exchange (HIE) Systems</a>
+            <a mat-list-item [routerLink]="['EHR']">Electronic Health Record (EHR) Systems</a>
+            <a mat-list-item [routerLink]="['PHMS']">Pharmacy Management System</a>
+            <a mat-list-item [routerLink]="['THP']">Tele-Health Platforms</a>
+            <a mat-list-item [routerLink]="['PMS']">Practice Management Systems</a>
+            <!-- Add more links for other sections -->
+        </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <mat-toolbar class="toolbar">
-            <!-- Content for the top toolbar -->
-        </mat-toolbar>
-
-        <!-- Main content of the homescreen -->
+        <!-- <app-his></app-his>
+        <app-header></app-header> -->
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

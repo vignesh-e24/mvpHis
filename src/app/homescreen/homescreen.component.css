@@ -1,13 +1,21 @@
-.container {
-    height: 70vh;
-  }
-  
-  .sidenav {
-    width: 120px;
-  }
-  
-  .toolbar {
-    background-color: #f44336; /* Customize the background color as needed */
-    color: white; /* Customize the text color as needed */
-  }
-  
+.mat-sidenav-container {
+  height: 93%;
+}
+
+.mat-sidenav {
+  width: 440px; 
+}
+
+.mat-toolbar {
+  background-color: yellow;
+  height:7%;
+}
+
+.search-field {
+  width:100%; 
+}
+
+.mat-list-item{
+  align-items: center;
+  cursor: pointer;
+}

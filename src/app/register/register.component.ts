@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
 
+  register()
+  {
+
+  }
+  gender()
+  {
+
+  }
+  onReset(){
+    
+  }
+
 }
