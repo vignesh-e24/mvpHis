@@ -12,12 +12,14 @@ import { EhrComponent } from './homescreen/ehr/ehr.component';
 import { PhmsComponent } from './homescreen/phms/phms.component';
 import { ThpComponent } from './homescreen/thp/thp.component';
 import { PmsComponent } from './homescreen/pms/pms.component';
+import { HomeComponent } from './homescreen/home/home.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'homescreen',
     component: HomescreenComponent,
     children: [
+      {path: 'home', component: HomeComponent},
       {path: 'HIS', component: HisComponent},
       {path: 'LIS', component: LisComponent},
       {path: 'PACS', component: PacsComponent},

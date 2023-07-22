@@ -1,11 +1,59 @@
-.registration-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+mat-card {
+  margin: 0 auto;
+  max-width: 500px;
+  top:7%;
+}
+
+mat-card-title {
+  font-size: 24px;
+  text-align: center;
+  padding: 13px;
   
-  .registration-card {
-    width: 400px;
-    padding: 20px;
-  }
+  color: #333;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+ 
+}
+
+
+mat-form-field {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+mat-error {
+  color: red;
+  font-size: 12px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  margin-top: 20px;
+}
+
+mat-select {
+  width: 100%;
+}
+
+.mat-option {
+  font-size: 14px;
+}
+
+.mat-form-field-label {
+  font-size: 14px;
+  color: #333;
+}
+
+.mat-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.name-fields {
+  display: flex;
+}
+
+.name-fields mat-form-field {
+  margin-right: 10px;
+}

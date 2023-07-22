@@ -13,6 +13,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -28,6 +29,7 @@ import { PhmsComponent } from './homescreen/phms/phms.component';
 import { ThpComponent } from './homescreen/thp/thp.component';
 import { PmsComponent } from './homescreen/pms/pms.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { HomeComponent } from './homescreen/home/home.component';
 
 
 
@@ -46,6 +48,7 @@ import { MatRadioModule } from '@angular/material/radio';
     PhmsComponent,
     ThpComponent,
     PmsComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,10 +65,11 @@ import { MatRadioModule } from '@angular/material/radio';
     BrowserAnimationsModule,
     MatListModule,
     AppRoutingModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule
   ],
   exports: [],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, RegisterComponent]
 })
 export class AppModule { }

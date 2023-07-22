@@ -7,8 +7,15 @@
 }
 
 .mat-toolbar {
-  background-color: yellow;
+  background-color: #2bb1ea; /* Customize the background color as needed */
+  color: white; /* Customize the text color as needed */
   height:7%;
+}
+
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
 }
 
 .search-field {
@@ -19,3 +26,7 @@
   align-items: center;
   cursor: pointer;
 }
+
+
+
+
