@@ -1,0 +1,48 @@
+<div class="container">
+  <img src="assets/img/home.jpg" alt="Image" class="image" />
+  <mat-card class="login-form">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <!-- Email input field -->
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+          Invalid email
+        </mat-error>
+      </mat-form-field>
+      <!-- Password input field -->
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" />
+        <mat-icon class="hide-icon" matSuffix (click)="togglePasswordVisibility()">
+          {{ hidePassword ? "visibility_off" : "visibility" }}
+        </mat-icon>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+          Password is required
+        </mat-error>
+        <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+          Password must be at least 8 characters long
+        </mat-error>
+      </mat-form-field>
+      <!-- Submit button -->
+      <button routerLink="/homescreen" mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
+        Login
+      </button>
+    </form>
+    <!-- Save Password -->
+    <mat-checkbox class="custom-checkbox" [(ngModel)]="savePassword">Save Password</mat-checkbox>
+    <!-- Forgot Password -->
+    <a class="links" routerLink="/forgotPassword"> Forgot your password?</a>
+    <!-- RegisterAccount -->
+    <div class="links">
+      Need an account? <a routerLink="/register"> Register</a>
+    </div>
+  </mat-card>
+  <div>
+    <!-- Copyrights -->
+    <span class="copyrights">&copy;SkyInnovativeLabs</span>
+    <!-- Version -->
+    <span class="version">v1.0.0</span>

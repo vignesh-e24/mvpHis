@@ -1,0 +1,32 @@
+.mat-sidenav-container {
+  height: 93%;
+}
+
+.mat-sidenav {
+  width: 440px; 
+}
+
+.mat-toolbar {
+  background-color: #2bb1ea; /* Customize the background color as needed */
+  color: white; /* Customize the text color as needed */
+  height:7%;
+}
+
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.search-field {
+  width:100%; 
+}
+
+.mat-list-item{
+  align-items: center;
+  cursor: pointer;
+}
+
+
+
+
