@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
-import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -30,8 +29,14 @@ import { ThpComponent } from './homescreen/thp/thp.component';
 import { PmsComponent } from './homescreen/pms/pms.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { HomeComponent } from './homescreen/home/home.component';
-
-
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
+import { BillingComponent } from './billing/billing.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -49,6 +54,7 @@ import { HomeComponent } from './homescreen/home/home.component';
     ThpComponent,
     PmsComponent,
     HomeComponent,
+    BillingComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +72,14 @@ import { HomeComponent } from './homescreen/home/home.component';
     MatListModule,
     AppRoutingModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule,
+    MatProgressBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTableModule,
+    MatTabsModule,
+    MatPaginatorModule
   ],
   exports: [],
   providers: [],
