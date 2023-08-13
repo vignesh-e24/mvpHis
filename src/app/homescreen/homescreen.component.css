@@ -28,5 +28,22 @@
 }
 
 
+.blink {
+  animation: blinker 1.5s linear infinite;
+  color: #2bb1ea;
+  font-family: sans-serif;
+  width:"100%";
+  direction:"right";
+  height:"25px";
+}
+
+@keyframes blinker {
+ 50% {
+    opacity: 0;
+  }
+
+}
+
+
 
 

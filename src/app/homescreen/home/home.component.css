@@ -1,107 +1,75 @@
-.button {
-    transition-duration: 0.4s;
-    opacity: 80px;
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.wrapper{
+  width: 100%;
+}
+.wrapper .container{
+  padding-top: 10px;
+}
+
+.wrapper .container .section{
+  width: 80%;
+  margin: 0px auto;
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 20px;
+}
+
+.wrapper .container .section .gallery{
+  width:100%;
+  position: relative;
+}
+
+.wrapper .container .section .gallery .image{
+  width: 100%;
+}
+
+.wrapper .container .section .gallery .image img{
+  width: 100px;
+  height: 100px;
+  border: 1px solid #eee;
+  padding: 5px;
+  display: block;
+}
+
+.wrapper .container .section .gallery .caption{
+  width:100px;
+  height: 30px;
+  position: absolute;
+  padding: 2px;
+  top: 70px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  text-align:center;
+  flex-direction: column;
+  background-color: rgba(255,255,255,0.3);
+  color: #222;
+  opacity:0;
+  transition: opacity 0.30s;
+}
+
+.wrapper .container .section .gallery .caption:hover{
+  opacity:1;
+}
+
+.wrapper .container .section .gallery .caption p{
+  color: rgb(7, 7, 7);
+}
+@media screen and (max-width: 992px) {
+  .wrapper .container .section{
+    grid-template-columns: repeat(2,1fr);
   }
-  
-  .button:hover {
-    background-color: grey;
-    color: white;
+}
+
+@media screen and (max-width: 568px) {
+  .wrapper .container .section{
+    grid-template-columns: 1fr;
   }
-  
-  *{
-      box-sizing: border-box;
-    }
-  
-    .containers{
-      display: flex;
-      width: 100%;
-    }
-  
-    .card{
-      height: 100px;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      margin-left: 60px;
-      margin-right: 60px;
-      overflow: hidden;
-    }
-  
-    .intro{
-      height: 100px;
-      width: 100px;
-      box-sizing: border-box;
-      position: absolute;
-      bottom: 150px;
-      background-color: rgb(27, 27, 27,0);
-      color: white;
-    }
-  
-    .para{
-      text-align: center;
-      margin-top: 5px;
-      opacity: 0;
-    }
-  
-    .card:hover{
-      cursor: pointer;
-    }
-  
-    .card:hover .intro{
-      height: 30px;
-      bottom: 415px;
-      background: rgb(27, 27, 27,0.5);
-    }
-  
-    .card:hover .para{
-      opacity: 1;
-      visibility: visible;
-    }
-  
-    .introRow2{
-      height: 100px;
-      width: 100px;
-      box-sizing: border-box;
-      position: absolute;
-      bottom: 70px;
-      background-color: rgb(27, 27, 27,0);
-      color: white;
-    }
-  
-    .card:hover .introRow2{
-      height: 30px;
-      top: 230px;
-      background: rgb(27, 27, 27,0.5);
-    }
-  
-    .introRow3{
-      height: 100px;
-      width: 100px;
-      box-sizing: border-box;
-      position: absolute;
-      bottom: 70px;
-      background-color: rgb(27, 27, 27,0);
-      color: white;
-    }
-  
-    .card:hover .introRow3{
-      height: 30px;
-      bottom: 135px;
-      background: rgb(27, 27, 27,0.5);
-    }
-  
-    .introRow4{
-      height: 100px;
-      width: 100px;
-      box-sizing: border-box;
-      position: absolute;
-      bottom: 70px;
-      background-color: rgb(27, 27, 27,0);
-      color: white;
-    }
-  
-    .card:hover .introRow4{
-      height: 30px;
-      bottom: 0px;
-      background: rgb(27, 27, 27,0.5);
-    }
-  
+}
