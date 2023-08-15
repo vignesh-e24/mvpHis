@@ -14,7 +14,7 @@ import { ThpComponent } from './homescreen/thp/thp.component';
 import { PmsComponent } from './homescreen/pms/pms.component';
 import { HomeComponent } from './homescreen/home/home.component';
 import { BillingComponent } from './billing/billing.component';
-
+import { ForgotPasswordComponent } from './login/forgotpassword/forgotpassword.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'homescreen',
@@ -33,6 +33,7 @@ const routes: Routes = [
     ]
 },
   { path: 'login', component: LoginComponent },
+  { path: 'forgotPassword', component: ForgotPasswordComponent},
   { path: 'homescreen', component: HomescreenComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'billing', component: BillingComponent }

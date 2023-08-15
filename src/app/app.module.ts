@@ -13,6 +13,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
+import { BillingComponent } from './billing/billing.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -29,14 +38,7 @@ import { ThpComponent } from './homescreen/thp/thp.component';
 import { PmsComponent } from './homescreen/pms/pms.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { HomeComponent } from './homescreen/home/home.component';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatTableModule } from '@angular/material/table';
-import { BillingComponent } from './billing/billing.component';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { ForgotPasswordComponent } from './login/forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ThpComponent,
     PmsComponent,
     HomeComponent,
-    BillingComponent
+    BillingComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
