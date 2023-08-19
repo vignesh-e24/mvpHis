@@ -1,0 +1,190 @@
+.image-container {
+  position: fixed;
+  top: 40px; 
+  left: 55px; 
+  width: 230px; 
+  height: 250px; 
+  display: flex;
+  
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-fill {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.form-container {
+    display: flex;
+  }
+  .column {
+    flex: 1;
+    padding: 10px;
+    width: min-content;
+  }
+  
+  .form-field {
+    margin-bottom: 10px;
+    margin-left: 350px;
+    max-width: min-content;
+   
+  }
+  .smaller-label-box mat-form-field {
+    width: 210px; 
+  }
+
+  .form-field1 {
+    margin-bottom: 10px;
+    margin-left: 140px;
+    max-width: min-content;
+  }
+  .smaller-label-box1 mat-form-field {
+    width: 210px;
+   min-height: min-content;
+   margin-left: 10%;
+   
+  }
+  .form-field2 {
+    margin-bottom: 10px;
+    margin-left: 30px;
+    max-width: min-content;
+  }
+  .smaller-label-box2 mat-form-field {
+    width: 210px;
+   min-height: min-content;
+   margin-left: 10%;
+  }
+  .buttons {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Custom animation */
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes slideInOut {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+ .bmi-calculator-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 400px;
+  margin: auto;
+} 
+.Height{
+
+margin-left: -192px;
+margin-top: -20px;
+}
+
+.Weight{
+  margin-left:200px;
+  margin-top: -80px;
+} 
+ .BMI{
+  margin-left: 550px;
+  margin-top: -78px;
+} 
+
+.mat-form-field {
+  margin-bottom: 20px;
+}
+
+
+.form-container1 {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 1400px;
+  position: absolute;
+  top: 370px;
+  left: 55px;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.9);
+} 
+
+.box-container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  height: 250px;
+  width: 1370px; 
+  right: 150px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+}
+
+.button-container1 {
+  margin-top: 10px;
+  display: flex;
+  position: absolute;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  top: 5px;
+  right: 15px;
+}
+.button-spacing1 {
+  margin-right: 10px;
+  top: 70px;
+  border-radius: 1px;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.input-field {
+  width: 180px;
+}
+.active-button {
+  background-color: rgb(244, 232, 2);
+}
+.mat-elevation-z8 {
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+
+.mat-button-toggle-group {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+
+.mat-button-toggle {
+  border-radius: 20px;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 426px;
+}
+
+.curve-button {
+  border-radius: 1px; 
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+
+}
+
