@@ -15,6 +15,7 @@ import { PmsComponent } from './homescreen/pms/pms.component';
 import { HomeComponent } from './homescreen/home/home.component';
 import { BillingComponent } from './billing/billing.component';
 import { ForgotPasswordComponent } from './login/forgotpassword/forgotpassword.component';
+import { PatientRegistrationComponent } from './patientregistration/patient-registration.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'homescreen',
@@ -36,7 +37,8 @@ const routes: Routes = [
   { path: 'forgotPassword', component: ForgotPasswordComponent},
   { path: 'homescreen', component: HomescreenComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'billing', component: BillingComponent }
+  { path: 'billing', component: BillingComponent },
+  {path: 'patientregister',component:PatientRegistrationComponent}
 ];
 
 @NgModule({

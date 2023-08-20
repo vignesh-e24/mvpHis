@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -39,6 +39,12 @@ import { PmsComponent } from './homescreen/pms/pms.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { HomeComponent } from './homescreen/home/home.component';
 import { ForgotPasswordComponent } from './login/forgotpassword/forgotpassword.component';
+import { PatientRegistrationComponent } from './patientregistration/patient-registration.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatStepperModule} from '@angular/material/stepper';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+
+
 
 @NgModule({
   declarations: [
@@ -57,7 +63,8 @@ import { ForgotPasswordComponent } from './login/forgotpassword/forgotpassword.c
     PmsComponent,
     HomeComponent,
     BillingComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    PatientRegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -82,8 +89,10 @@ import { ForgotPasswordComponent } from './login/forgotpassword/forgotpassword.c
     MatNativeDateModule,
     MatTableModule,
     MatTabsModule,
-    MatPaginatorModule
-  ],
+    MatPaginatorModule,
+    MatSlideToggleModule,
+    MatStepperModule,
+    MatButtonToggleModule],
   exports: [],
   providers: [],
   bootstrap: [AppComponent, RegisterComponent]
