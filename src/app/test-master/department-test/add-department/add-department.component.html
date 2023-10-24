@@ -1,0 +1,18 @@
+<div class="form-div">
+    <mat-icon matDialogClose style="margin-left: 280px; margin-bottom: 5px;">close</mat-icon>
+    <form >
+        <p>
+            <mat-label>Department:</mat-label>
+                <input [(ngModel)]="departmentDetails.department" name="department" style="width: 200px; margin-left:5px" type="text" required>
+        </p>
+        <p>
+            <mat-label>Seq:</mat-label>
+                <input [(ngModel)]="departmentDetails.seq" name="seq" style="width: 200px; margin-left:55px" type="text" required>
+        </p>
+    </form>
+    
+        <mat-slide-toggle class="button-spacing"></mat-slide-toggle> 
+        <button mat-raised-button color="warn" class="button-spacing" (click)="clearDepartmentDetails()">Clear</button>
+        <button mat-raised-button color="primary" class="button-spacing">Save</button>
+</div>
+

@@ -1,0 +1,31 @@
+<p  class="dialog-title">
+
+    <mat-dialog-actions>
+        <mat-card-title style="margin-left:200px;">Result Type
+        <mat-icon matDialogClose style="margin-left: 180px;">close</mat-icon>
+    </mat-card-title>
+    </mat-dialog-actions>
+</p>
+
+<div class="form-container">
+    <mat-radio-group [(ngModel)]="selectedOption" >
+      <mat-radio-button value="text">Text</mat-radio-button>
+      <mat-radio-button value="pickList">PickList</mat-radio-button>
+      <mat-radio-button value="numeric">Numeric</mat-radio-button>
+      <mat-radio-button value="templete">Templete</mat-radio-button>
+    </mat-radio-group>
+
+    <div class="box-container" *ngIf="selectedOption === 'text' || isFormVisible" >
+        <h4 style="margin-left: 30px;">Please type the result type in the text box.</h4>
+        <textarea rows="6" cols="40" style="margin-left: 30px;"></textarea>
+    </div>
+
+    <div class="box-container" *ngIf="selectedOption === 'pickList' || isFormVisible" >
+        <mat-radio-button>positive</mat-radio-button><br>
+        <mat-radio-button>negative</mat-radio-button><br>
+        <mat-radio-button>positive</mat-radio-button><br>
+        <mat-radio-button>negative</mat-radio-button>
+    </div>
+</div>
+
+<button mat-raised-button color="primary" class="save-button">Save</button>

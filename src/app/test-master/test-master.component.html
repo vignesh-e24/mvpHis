@@ -1,0 +1,316 @@
+<mat-toolbar class="toolbar">
+    <span class="example-fill-remaining-space"></span>
+                <span>Master Creation</span>
+                <span class="example-fill-remaining-space"></span>
+                <span><button>excel import</button></span>
+                <span><button style="margin-left: 20px;">excel import</button></span>
+</mat-toolbar>
+
+<mat-card-content>
+   <!-- <mat-dialog-actions>
+        <button mat-raised-button color="primary" (click)="openDialog()">Test Master</button>
+    </mat-dialog-actions>
+
+    <mat-dialog-actions>
+        <button mat-raised-button color="primary" (click)="openDialog()">Package/Group Master</button>
+    </mat-dialog-actions> -->
+
+    <div class="form-container">
+        <mat-radio-group [(ngModel)]="selectedOption" >
+          <mat-radio-button value="testMaster">Test Master</mat-radio-button>
+          <mat-radio-button value="packageMaster">Package/Group Master</mat-radio-button>
+        </mat-radio-group>
+
+
+        <div class="box-container" *ngIf="selectedOption === 'testMaster' || isFormVisible" >
+            <form >
+                <p>
+                    <mat-label>Test Name:  </mat-label>
+                        <input  [(ngModel)]="testMaster.testName" name="testName" style="width: 200px; margin-left: 30px" type="text" required>
+                </p>
+                <p>
+                <mat-label>Department:</mat-label>
+                    <select [(ngModel)]="testMaster.department" name="department" style="width: 200px; margin-left: 30px">
+                        <!--<option disabled selected hidden>please select</option>-->
+                        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+                    </select>
+            </p>
+            <p>
+                <mat-label>Smaple: </mat-label>
+                    <select [(ngModel)]="testMaster.sample" name="sample" style="width: 200px; margin-left: 53px">
+                        <!--<option disabled selected hidden>please select</option>-->
+                        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+                    </select>
+            </p>
+            <p>
+                <mat-label>unit: </mat-label>
+                    <select [(ngModel)]="testMaster.unit" name="unit" style="width: 200px; margin-left: 78px">
+                        <!--<option disabled selected hidden>please select</option>-->
+                        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+                    </select>
+            </p>
+            <p>
+                <mat-label>Container: </mat-label>
+                    <select [(ngModel)]="testMaster.container" name="container" style="width: 200px; margin-left: 40px">
+                        <!--<option disabled selected hidden>please select</option>-->
+                        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+                    </select>
+            </p>
+            <p>
+                <mat-label>method: </mat-label>
+                    <select [(ngModel)]="testMaster.method" name="method" style="width: 200px; margin-left: 53px">
+                        <!--<option disabled selected hidden>please select</option>-->
+                        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+                    </select>
+            </p>
+            <p>
+                <mat-label style="margin-right: 28px;">Result type: </mat-label>
+                    Select the Result Type
+                    <button style="margin-left: 5px;" (click)="openResultType()">result</button>
+            </p>
+            <p>
+                <mat-label>refRange:  </mat-label>
+                    <input [(ngModel)]="testMaster.ref" name="ref" style="width: 80px; margin-left: 46px" type="text" required>
+                    <input [(ngModel)]="testMaster.ref1" name="ref1" style="width: 80px; margin-left: 30px;" type="text" required>
+            </p>
+    	    <p>
+                    <mat-dialog-actions>
+                        Important Notes: TEXT AREA<button (click)="openDialog()" style="margin-left: 5px;">+</button>
+                    </mat-dialog-actions>
+            </p>     
+            <p>
+                <mat-label>Price:  </mat-label>
+                    <input [(ngModel)]="testMaster.price" name="price" style="width: 200px; margin-left: 72px" type="text" required>
+            </p>
+        </form>
+        <button mat-raised-button matDialogClose color="warn" class="button-spacing" (click)="clearTestDetails()" >Clear</button>
+        <button mat-raised-button color="primary" class="button-spacing">Save</button>
+    </div>
+    <div class="test-side-content" *ngIf="selectedOption === 'testMaster' || isFormVisible" >
+        <p>
+            <mat-label>Comments:  </mat-label>
+            <input [(ngModel)]="testMaster.comments" name="comments" style="width: 200px; margin-left: 30px" type="text" required>
+        </p>
+        <p>
+            <mat-label>Decimal:  </mat-label>
+            <input [(ngModel)]="testMaster.decimal" name="decimal" style="width: 200px; margin-left: 48px" type="text" required>
+        </p>
+        <mat-label>Tat time:</mat-label>
+        <div class="table-container2">
+            <table mat-table [dataSource]="data1"   >
+
+                <ng-container matColumnDef="sqNo">
+                    <mat-header-cell *matHeaderCellDef ><input type="checkbox"></mat-header-cell>
+                    <mat-cell *matCellDef="let test; let i = index"> select</mat-cell>
+                </ng-container>
+    
+                <ng-container matColumnDef="TestName">
+                    <mat-header-cell *matHeaderCellDef > hrs</mat-header-cell>
+                    <mat-cell *matCellDef="let test">{{ test.text }} </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="col1"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: col1;"></mat-row>
+            </table>
+        </div> 
+    </div>
+
+
+<div class="box-container" *ngIf="selectedOption === 'packageMaster' || isFormVisible" >
+    <form >
+        <p>
+            <mat-label>Package/grp Name:  </mat-label>
+                <input [(ngModel)]="packageMaster.grpName" name="grpName" style="width: 200px; margin-left: 30px" type="text" required>
+        </p>
+        <p>
+            <mat-label>Department:</mat-label>
+                <select [(ngModel)]="packageMaster.department" name="department" style="width: 200px; margin-left: 82px">
+                    <!--<option disabled selected hidden>please select</option>-->
+                    <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+                </select>
+        </p>
+        <p>
+            <mat-label>Smaple: </mat-label>
+                <select [(ngModel)]="packageMaster.sample" name="sample" style="width: 200px; margin-left: 107px">
+                    <!--<option disabled selected hidden>please select</option>-->
+                    <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+                </select>
+        </p>
+
+        <p>
+            <mat-label>Container: </mat-label>
+                <select [(ngModel)]="packageMaster.container" name="container" style="width: 200px; margin-left: 92px">
+                    <!--<option disabled selected hidden>please select</option>-->
+                    <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+                </select>
+        </p>
+        <p>
+            <mat-dialog-actions>
+                Important Notes: TEXT AREA<button (click)="openDialog()" style="margin-left: 5px;">+</button>
+            </mat-dialog-actions>
+        </p>    
+        <p>
+            <mat-label>Price:  </mat-label>
+                <input [(ngModel)]="packageMaster.price" name="price" style="width: 200px; margin-left: 122px" type="text" required>
+        </p>
+        <mat-label>Tat time:</mat-label>
+        <div class="table-container1">
+            <table mat-table [dataSource]="data1"   >
+
+                <ng-container matColumnDef="sqNo">
+                    <mat-header-cell *matHeaderCellDef ><input type="checkbox"></mat-header-cell>
+                    <mat-cell *matCellDef="let test; let i = index"> select</mat-cell>
+                </ng-container>
+    
+                <ng-container matColumnDef="TestName">
+                    <mat-header-cell *matHeaderCellDef > hrs</mat-header-cell>
+                    <mat-cell *matCellDef="let test">{{ test.text }} </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="col1"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: col1;"></mat-row>
+            </table>
+        </div> 
+        <div class="toggle">
+      <mat-slide-toggle></mat-slide-toggle>  
+    </div>
+    </form>
+    <button mat-raised-button matDialogClose color="warn" class="button-spacing" (click)="clearPackageDetails()">Clear</button>
+    <button mat-raised-button color="primary" class="button-spacing">Save</button>
+</div>
+    <div class="table-container" *ngIf="selectedOption === 'packageMaster' || isFormVisible" >
+        <table mat-table [dataSource]="data">
+
+            <ng-container matColumnDef="sqNo">
+                <mat-header-cell *matHeaderCellDef >sqNo</mat-header-cell>
+                <mat-cell *matCellDef="let test; let i = index"> {{ i + 1 }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="TestName">
+                <mat-header-cell *matHeaderCellDef> TestName</mat-header-cell>
+                <mat-cell *matCellDef="let test">{{ test.text }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Remove">
+                <mat-header-cell *matHeaderCellDef> Remove </mat-header-cell>
+                <mat-cell *matCellDef="let test"><button mat-icon-button color="primary">
+                    <mat-icon>remove</mat-icon>
+                  </button> </mat-cell>
+            </ng-container>
+            
+            <mat-header-row *matHeaderRowDef="col" ></mat-header-row>
+            <mat-row *matRowDef="let row; columns: col;"></mat-row>
+
+        </table>
+        <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+        </div>
+</div>
+    
+ <!--<div class="table-container" >
+        <table mat-table [dataSource]="data"  >
+
+            <ng-container matColumnDef="sqNo">
+                <mat-header-cell *matHeaderCellDef >sqNo</mat-header-cell>
+                <mat-cell *matCellDef="let test; let i = index"> {{ i + 1 }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="TestName">
+                <mat-header-cell *matHeaderCellDef > TestName</mat-header-cell>
+                <mat-cell *matCellDef="let test">{{ test.text }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Remove">
+                <mat-header-cell *matHeaderCellDef> Remove </mat-header-cell>
+                <mat-cell *matCellDef="let test"><button mat-icon-button color="primary">
+                    <mat-icon>remove</mat-icon>
+                  </button> </mat-cell>
+            </ng-container>
+            
+            <mat-header-row *matHeaderRowDef="col"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: col;"></mat-row>
+
+        </table>
+        <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+    </div> -->
+
+    <div class="button-department" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+        <button mat-raised-button color="primary" class="button-spacing" (click)="openDepartmentDialog()">Department</button>
+    </div>
+    <div class="button-sample" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+        <button mat-raised-button color="primary" class="button-spacing" (click)="openSampleDialog()">sample</button>
+    </div>
+    <div class="button-unit" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+        <button mat-raised-button color="primary" class="button-spacing" (click)="openUnitDialog()">Unit</button>
+    </div>
+    <div class="button-container" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+        <button mat-raised-button color="primary" class="button-spacing" (click)="openConatinerDialog()">Container</button>
+    </div>
+    <div class="button-method" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+        <button mat-raised-button color="primary" class="button-spacing" (click)="openMethodDialog()">Method</button>
+    </div>
+
+<div class="table-container-main" >
+        <table mat-table [dataSource]="dataSource" >
+
+            <ng-container matColumnDef="check" >
+                <mat-header-cell *matHeaderCellDef > <input type="checkbox"> </mat-header-cell>
+                <mat-cell *matCellDef="let test"> <input type="checkbox"> </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="sqNo">
+                <mat-header-cell *matHeaderCellDef > Sq No </mat-header-cell>
+                <mat-cell *matCellDef="let test; let i = index"> {{ i + 1 }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="textArea">
+                <mat-header-cell *matHeaderCellDef > <input style="width: 80px;" type="text"> </mat-header-cell>
+                <mat-cell *matCellDef="let test">{{ test.department }} </mat-cell>
+            </ng-container>
+            
+            <ng-container matColumnDef="department">
+                <mat-header-cell *matHeaderCellDef> Department </mat-header-cell>
+                <mat-cell *matCellDef="let test"> {{ test.department }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="sample">
+                <mat-header-cell *matHeaderCellDef > Sample </mat-header-cell>
+                <mat-cell *matCellDef="let test"> {{ test.sample }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="unit">
+                <mat-header-cell *matHeaderCellDef > Unit </mat-header-cell>
+                <mat-cell *matCellDef="let test"> {{ test.unit}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="method">
+                <mat-header-cell *matHeaderCellDef > Method </mat-header-cell>
+                <mat-cell *matCellDef="let test"> {{ test.method }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Range">
+                <mat-header-cell *matHeaderCellDef > ref Range </mat-header-cell>
+                <mat-cell *matCellDef="let test"> {{ test.refRange }} <button (click)="openRefDialog()">+</button></mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="result">
+                <mat-header-cell *matHeaderCellDef > Result </mat-header-cell>
+                <mat-cell *matCellDef="let test"> {{ test.result }} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+                <mat-header-cell *matHeaderCellDef > Price </mat-header-cell>
+                <mat-cell *matCellDef="let test"> {{ test.price}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <mat-header-cell *matHeaderCellDef> Delete </mat-header-cell>
+                <mat-cell *matCellDef="let test"><button mat-icon-button color="primary">
+                    <mat-icon>delete</mat-icon>
+                  </button> </mat-cell>
+            </ng-container>
+            
+            <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+
+        </table>
+        <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+    </div>  
+</mat-card-content>

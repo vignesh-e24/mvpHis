@@ -1,0 +1,17 @@
+.table-tsh{
+        width: 80%;
+        border: 1px solid rgba(11, 11, 11, 0.3);
+        margin-left: 10%;
+}
+
+.from-area{
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+}
+
+.display-area{
+    width: 50%;
+    margin-left: 125px;
+    padding: 10px;
+}

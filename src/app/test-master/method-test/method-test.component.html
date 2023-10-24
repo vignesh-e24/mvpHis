@@ -1,0 +1,46 @@
+
+<div style="background-color: #2bb1ea;color: white;">
+
+    <mat-dialog-actions>
+        <mat-card-title style="margin-left: 450px;">METHOD
+        <mat-icon matDialogClose style="margin-left: 500px;">close</mat-icon>
+    </mat-card-title>
+    </mat-dialog-actions>
+
+</div>
+<mat-dialog-content>
+<div>
+    <div class="search">
+        <mat-icon>search</mat-icon><input type="text" placeholder="Type your text">
+    </div>
+<div class="add-div">
+    <button mat-raised-button color="primary" (click)="openAdd()">Add</button>
+</div>
+<div class="table-container" >
+<table mat-table [dataSource]="data"  >
+
+    <ng-container matColumnDef="sqNo">
+        <mat-header-cell *matHeaderCellDef >sqNo</mat-header-cell>
+        <mat-cell *matCellDef="let test; let i = index"> {{ i + 1 }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="TestName">
+        <mat-header-cell *matHeaderCellDef >Method Name</mat-header-cell>
+        <mat-cell *matCellDef="let test">{{ test.text }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="Remove">
+        <mat-header-cell *matHeaderCellDef> Remove </mat-header-cell>
+        <mat-cell *matCellDef="let test"><button mat-icon-button color="primary">
+            <mat-icon>remove</mat-icon>
+          </button> </mat-cell>
+    </ng-container>
+    
+    <mat-header-row *matHeaderRowDef="col"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: col;"></mat-row>
+
+</table>
+<mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+</div>
+</div>
+</mat-dialog-content>
