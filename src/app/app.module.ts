@@ -21,29 +21,35 @@ import { MatTableModule } from '@angular/material/table';
 import { BillingComponent } from './billing/billing.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
-
+import { TestMasterComponent } from './test-master/test-master.component';
+import {MatDialogModule} from '@angular/material/dialog'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatMenuModule } from '@angular/material/menu';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { HomescreenComponent } from './homescreen/homescreen.component';
-import { HisComponent } from './homescreen/his/his.component';
-import { LisComponent } from './homescreen/lis/lis.component';
-import { PacsComponent } from './homescreen/pacs/pacs.component';
-import { RisComponent } from './homescreen/ris/ris.component';
-import { HieComponent } from './homescreen/hie/hie.component';
-import { EhrComponent } from './homescreen/ehr/ehr.component';
-import { PhmsComponent } from './homescreen/phms/phms.component';
-import { ThpComponent } from './homescreen/thp/thp.component';
-import { PmsComponent } from './homescreen/pms/pms.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { HomeComponent } from './homescreen/home/home.component';
 import { ForgotPasswordComponent } from './login/forgotpassword/forgotpassword.component';
 import { PatientRegistrationComponent } from './patientregistration/patient-registration.component';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatStepperModule} from '@angular/material/stepper';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
-
+import { HttpClientModule } from '@angular/common/http';
+import { TestDailogComponent } from './test-master/test-dailog/test-dailog.component';
+import { UnitTestComponent } from './test-master/unit-test/unit-test.component';
+import { AddComponent } from './test-master/unit-test/add/add.component';
+import { SampleTestComponent } from './test-master/sample-test/sample-test.component';
+import { AddComponentComponent } from './test-master/sample-test/add-component/add-component.component';
+import { DepartmentTestComponent } from './test-master/department-test/department-test.component';
+import { MethodTestComponent } from './test-master/method-test/method-test.component';
+import { ContainerTestComponent } from './test-master/container-test/container-test.component';
+import { AddContainerComponent } from './test-master/container-test/add-container/add-container.component';
+import { AddDepartmentComponent } from './test-master/department-test/add-department/add-department.component';
+import { AddMethodComponent } from './test-master/method-test/add-method/add-method.component';
+import { RefDialogComponent } from './test-master/ref-dialog/ref-dialog.component';
+import { ResultTypeComponent } from './test-master/result-type/result-type.component';
+import { HomescreenComponent } from './homescreen/homescreen.component';
 
 
 @NgModule({
@@ -52,23 +58,29 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     LoginComponent,
     RegisterComponent,
     HomescreenComponent,
-    HisComponent,
-    LisComponent,
-    PacsComponent,
-    RisComponent,
-    HieComponent,
-    EhrComponent,
-    PhmsComponent,
-    ThpComponent,
-    PmsComponent,
     HomeComponent,
     BillingComponent,
     ForgotPasswordComponent,
-    PatientRegistrationComponent
+    PatientRegistrationComponent,
+    TestMasterComponent,
+    TestDailogComponent,
+    UnitTestComponent,
+    AddComponent,
+    SampleTestComponent,
+    AddComponentComponent,
+    DepartmentTestComponent,
+    MethodTestComponent,
+    ContainerTestComponent,
+    AddContainerComponent,
+    AddDepartmentComponent,
+    AddMethodComponent,
+    RefDialogComponent,
+    ResultTypeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
@@ -92,7 +104,11 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatPaginatorModule,
     MatSlideToggleModule,
     MatStepperModule,
-    MatButtonToggleModule],
+    MatButtonToggleModule,
+    MatPaginatorModule,
+    MatTreeModule,
+    MatMenuModule,
+    MatDialogModule],
   exports: [],
   providers: [],
   bootstrap: [AppComponent, RegisterComponent]

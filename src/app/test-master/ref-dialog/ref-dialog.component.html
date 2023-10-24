@@ -1,0 +1,46 @@
+<div style="background-color: #2bb1ea;color: white;">
+
+    <mat-dialog-actions>
+        <mat-card-title style="margin-left: 350px;">TSH
+        <mat-icon matDialogClose style="margin-left: 400px;">close</mat-icon>
+    </mat-card-title>
+    </mat-dialog-actions>
+
+</div>
+
+<mat-dialog-content>
+    <div class="from-area">
+        <input type="text" placeholder="From">
+        <input type="text" placeholder="To" style="margin-left: 30px;">
+    </div>
+    <div class="display-area">
+        <textarea rows="3" cols="60" style="margin-left: 30px;" placeholder="Display ref range"></textarea>
+    </div>
+    <div class="table-tsh">
+        <table mat-table [dataSource]="data" >
+            <ng-container matColumnDef="sqNo" >
+                <mat-header-cell *matHeaderCellDef> gen </mat-header-cell>
+                <mat-cell *matCellDef="let test" > <input type="checkbox"> </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="TestName">
+                <mat-header-cell *matHeaderCellDef > from</mat-header-cell>
+                <mat-cell *matCellDef="let test; let i = index"> <input type="checkbox"></mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="Remove">
+                <mat-header-cell *matHeaderCellDef > to</mat-header-cell>
+                <mat-cell *matCellDef="let test"><input type="checkbox"></mat-cell>
+            </ng-container>
+            
+            <ng-container matColumnDef="blank">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let test"><input style="width: 40px;" type="text" placeholder="From"><input type="text" style="width: 40px;" placeholder="To"><input type="text" style="width: 40px;"  placeholder="Display"></mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="col"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: col;"></mat-row>
+        </table>
+    </div>
+</mat-dialog-content>
+

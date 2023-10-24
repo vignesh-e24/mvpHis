@@ -1,0 +1,35 @@
+.dialog-title{
+    background-color:  #2bb1ea;
+    color: white;
+    text-align: center;
+    height: 50px;
+  }
+
+.form-container {
+    border: 1px solid #ccc;
+    padding:2px;
+    border-radius: 1px;
+    width: 440px;
+    position: absolute;
+    top:18%;
+    left: 5%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  .box-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 400px; 
+    right: 100px;
+    top:20%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+
+  .save-button{
+    top: 72%;
+    left: 5%;
+  }
