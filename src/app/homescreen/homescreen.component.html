@@ -1,51 +1,40 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="toolbar">
+    <!-- Content for the top toolbar -->
     <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
-    <span fxFlex>Sky Tech</span>
-    <span class="spacer"></span>
-    <div class="user-info">
-        <span class="username">{{ username }}</span>
-        <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon class="account-icon">account_circle</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="logout()">Logout</button>
-        </mat-menu>
-    </div>
+    <!-- Content for the top toolbar -->
+    <span class="example-fill-remaining-space"></span>
+    <span>SKY TECH</span>
+    <span class="example-fill-remaining-space"></span>
+    <span><input type="text" autocomplete="off" placeholder="search"></span>
+    <span class="example-fill-remaining-space"></span>
+    <span>user</span>
+    <span class="example-fill-remaining-space"></span>
+    <span>username</span>
+    <span class="example-fill-remaining-space"></span>
+    <span><button>pass</button></span>
+    <span><button (click)="toLogin()">Logout</button></span>
 </mat-toolbar>
-
 <marquee class="blink">
     This is marquee tag where we can show important notice or Information.
 </marquee>
-
 <mat-sidenav-container class="container">
     <mat-sidenav #sidenav mode="side" opened="true">
         <mat-nav-list>
-            <div fxLayout="row">
-                <button fxFlex mat-button [routerLink]="['home']">Home</button>
-                <button fxFlex mat-button (click)="expandAll()">Expand</button>
-                <button fxFlex mat-button (click)="collapseAll()">Collapse</button>
-            </div>
-            <mat-nav-list>
-                <ng-container *ngFor="let menuItem of menuItems">
-                    <mat-list-item (click)="toggleExpand(menuItem)">
-                        <button mat-icon-button>
-                            <mat-icon class="mat-icon-rtl-mirror">
-                                {{menuItem.expanded ? 'expand_more' : 'chevron_right'}}
-                            </mat-icon>
-                        </button>
-                        {{ menuItem.parent }}
-                    </mat-list-item>
-                    <div *ngIf="menuItem.expanded">
-                        <mat-list class="childItem">
-                            <mat-list-item *ngFor="let childItem of menuItem.children"
-                                (click)="expandChildItem(childItem)">
-                                {{ childItem }}
-                            </mat-list-item>
-                        </mat-list>
-                    </div>
-                </ng-container>
-            </mat-nav-list>
-
+            <mat-form-field class="search-field">
+                <mat-icon matPrefix>search</mat-icon>
+                <input matInput placeholder="Search" />
+            </mat-form-field>
+            <a mat-list-item [routerLink]="['home']">Home</a>
+            <a mat-list-item [routerLink]="['HIS']">Hospital Information System (HIS)</a>
+            <a mat-list-item [routerLink]="['LIS']">Laboratory Information System (LIS)</a>
+            <a mat-list-item [routerLink]="['PACS']">Picture Archiving and Communication System (PACS)</a>
+            <a mat-list-item [routerLink]="['RIS']">Radiology Information System (RIS)</a>
+            <a mat-list-item [routerLink]="['HIE']">Health Information Exchange (HIE) Systems</a>
+            <a mat-list-item [routerLink]="['EHR']">Electronic Health Record (EHR) Systems</a>
+            <a mat-list-item [routerLink]="['PHMS']">Pharmacy Management System</a>
+            <a mat-list-item [routerLink]="['THP']">Tele-Health Platforms</a>
+            <a mat-list-item [routerLink]="['PMS']">Practice Management Systems</a>
+            <!-- Add more links for other sections -->
         </mat-nav-list>
     </mat-sidenav>
 

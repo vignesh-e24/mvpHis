@@ -1,0 +1,61 @@
+.add-patient-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.search-input {
+    width: 300px;
+}
+
+.reset-button {
+    margin-top: 10px;
+    background-color: rgb(71, 136, 228);
+    width: 10px;
+}
+
+.mat-table {
+    margin-top: 20px;
+}
+
+.box-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    border-color: #ccc;
+    padding: 10px;
+    width: 600px;
+    margin: 20px auto;
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.button .clear-button {
+    margin-bottom: 10px;
+}
+
+.payment-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.payment-input {
+    width: 100%;
+}
+
+.payment-input input {
+    width: 100%;
+}
+
+.clear-button {
+    background-color: rgb(71, 136, 228);
+}

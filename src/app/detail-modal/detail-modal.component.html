@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Details</h1>
+<div mat-dialog-content>
+    User Details
+</div>
+
+<div fxLayout="row" fxLayoutAlign="space-between start">
+    <form fxFlex="50">
+        <mat-form-field class="modal-field" appearance="outline" floatLabel="always" hideRequiredMarker>
+            <input matInput placeholder="NAME AGE/GEN" [(ngModel)]="detailInfo.name" name="name">
+        </mat-form-field>
+
+        <mat-form-field class="modal-field" appearance="outline" floatLabel="always" hideRequiredMarker>
+            <input matInput placeholder="PID" [(ngModel)]="detailInfo.age" name="age">
+        </mat-form-field>
+
+        <mat-form-field class="modal-field" appearance="outline" floatLabel="always" hideRequiredMarker>
+            <input matInput placeholder="DATETIME" [(ngModel)]="detailInfo.labId" name="labId">
+        </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-actions class="action-buttons">
+    <button mat-raised-button class="action-button" (click)="billPrint()">Bill Print</button>
+    <button mat-raised-button class="action-button" (click)="reportPrint()">Report Print</button>
+    <button mat-raised-button class="action-button" (click)="sendEmail()">Email</button>
+    <button mat-raised-button class="action-button" (click)="sendWhatsApp()">WhatsApp</button>
+    <button mat-raised-button class="action-button" (click)="sendSMS()">SMS</button>
+    <button mat-raised-button class="action-button" (click)="viewUser()">User</button>
+</div>
+
+<mat-table [dataSource]="userLogs" class="user-table">
+    <ng-container matColumnDef="userName">
+        <mat-header-cell *matHeaderCellDef>User Name</mat-header-cell>
+        <mat-cell *matCellDef="let userLog">{{ userLog.userName }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="userType">
+        <mat-header-cell *matHeaderCellDef>User Type</mat-header-cell>
+        <mat-cell *matCellDef="let userLog">{{ userLog.userType }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="loggedDate">
+        <mat-header-cell *matHeaderCellDef>Logged Date</mat-header-cell>
+        <mat-cell *matCellDef="let userLog">{{ userLog.loggedDate }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="loggedType">
+        <mat-header-cell *matHeaderCellDef>Logged Type</mat-header-cell>
+        <mat-cell *matCellDef="let userLog">{{ userLog.loggedType }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="userLogColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: userLogColumns;"></mat-row>
+</mat-table>

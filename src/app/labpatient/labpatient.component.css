@@ -1,0 +1,171 @@
+.box-container {
+    margin-top: 10px;
+    margin-left: 10px;
+    border: 1px solid #252424;
+    border-width: 3px;
+    padding: 8px;
+    width: 200px;
+    text-align: center;
+    background-color: #ded5d5;
+}
+
+.box-container1 {
+    border-radius: 10px;
+    width: 100px;
+    margin-left: 250px;
+    margin-top: -60px;
+}
+
+.search-input {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.box-container2 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    border-radius: 5px;
+    padding: 5px;
+    width: 1500px;
+}
+
+.mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+button.mat-icon-button.matSuffix {
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    margin-left: -1px;
+    cursor: pointer;
+}
+
+button.mat-icon-button.matSuffix mat-icon {
+    color: #333;
+}
+
+.urgent-button {
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.urgent-button:hover {
+    background-color: #cc0000;
+}
+
+.box-container3 {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 10px;
+    width: 1200px;
+    margin-left: 10px;
+}
+
+.clear-button {
+    background-color: #4a71ef;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.total {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: inherit;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-left: 600px;
+}
+
+.clear-button:hover {
+    background-color: #999;
+}
+
+.mat-elevation-z8 {
+    width: 100%;
+}
+
+.mat-header-cell {
+    font-weight: bold;
+    text-align: center;
+    background-color: #f0f0f0;
+    color: #333;
+    padding-top: 10px;
+}
+
+.mat-cell {
+    text-align: center;
+}
+
+.mat-header-cell.mat-checkbox-cell {
+    text-align: center;
+}
+
+.mat-cell.mat-checkbox-cell {
+    text-align: center;
+}
+
+.mat-row.mat-selected {
+    background-color: #cceeff;
+}
+
+.mat-row:hover {
+    background-color: #f0f0f0;
+}
+
+.clear-button1 {
+    background-color: #4a71ef;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.clear-button1:hover {
+    background-color: #999;
+}
+
+.lab-id-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.lab-id-container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: -85px;
+}
+
+.lab-id-container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: -50px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: -15px;
+}

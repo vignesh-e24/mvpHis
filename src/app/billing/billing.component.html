@@ -1,5 +1,5 @@
 <div class="container">
-<mat-card class="content-card">
+  <mat-card class="content-card">
     <mat-card-header>
       <mat-card-title>Registration & Hospital Billing </mat-card-title>
       <div class="icon-container">
@@ -22,16 +22,17 @@
       </div>
     </mat-card-header>
     <mat-card-content>
-      <mat-grid-list cols="4" rowHeight="130px"> 
+      <mat-grid-list cols="4" rowHeight="130px">
         <mat-grid-tile colspan="1">
           <div class="image-container" *ngIf="selectedFile">
             <img [src]="selectedFileUrl" alt="Selected Image">
             <button mat-icon-button class="upload-icon" color="primary" (click)="uploadImage()">
-              <mat-progress-bar *ngIf="uploadProgress !== undefined" mode="determinate" [value]="uploadProgress"></mat-progress-bar>
-                <img *ngIf="selectedFile" [src]="selectedFileUrl" alt="Selected Image">
-                  <a class="custom-link" *ngIf="selectedFile" [href]="selectedFileUrl" download="{{ selectedFile.name }}">
-                    <mat-icon class="custom-icon">cloud_upload</mat-icon> Download
-                  </a>
+              <mat-progress-bar *ngIf="uploadProgress !== undefined" mode="determinate"
+                [value]="uploadProgress"></mat-progress-bar>
+              <img *ngIf="selectedFile" [src]="selectedFileUrl" alt="Selected Image">
+              <a class="custom-link" *ngIf="selectedFile" [href]="selectedFileUrl" download="{{ selectedFile.name }}">
+                <mat-icon class="custom-icon">cloud_upload</mat-icon> Download
+              </a>
             </button>
           </div>
           <input type="file" (change)="onFileSelected($event)" accept="image/*">
@@ -40,561 +41,577 @@
           <div class="search-container">
             <mat-form-field class="search-box" appearance="outline" floatLabel="always" hideRequiredMarker>
               <input matInput type="text" placeholder="Search" [(ngModel)]="searchTerm">
-              <button mat-button *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+              <button mat-button *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Clear"
+                (click)="clearSearch()">
                 <mat-icon>close</mat-icon>
               </button>
             </mat-form-field>
           </div>
         </mat-grid-tile>
       </mat-grid-list>
-  
+
       <div class="button-container" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
         <button mat-raised-button color="primary" class="button-spacing">Draft Queue</button>
         <button mat-raised-button color="primary" class="button-spacing">Save</button>
         <button mat-raised-button color="primary" class="button-spacing">Save & Print</button>
       </div>
-      
-        <mat-grid-list cols="7" rowHeight="75px"> 
-          <mat-grid-tile colspan="1">
-            <div class="form-group-row small-form-fields">
-              <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                <mat-label>Patient Name</mat-label>
-                <input matInput placeholder="Patient Name" required>
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <div class="form-group-row small-form-fields">
-              <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                <mat-label>Age</mat-label>
-                <input matInput type="number" placeholder="Enter your age" [(ngModel)]="age">
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <div class="form-group-row small-form-fields">
-              <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                <mat-label>Specilisation</mat-label>
-                <input matInput placeholder="Enter Specilisation" required>
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-        </mat-grid-list> 
-        
-        <mat-grid-list cols="7" rowHeight="75px"> 
-          <mat-grid-tile colspan="1">
-            <div class="form-group-row small-form-fields">
-              <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                <mat-label>Date of Birth</mat-label>
-                <input matInput [matDatepicker]="dobPicker">
-                <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
-                <mat-datepicker #dobPicker></mat-datepicker>
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <div class="form-group-row small-form-fields">
-              <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                <mat-label>Gender</mat-label>
-                <mat-select>
-                  <mat-option value="male">Male</mat-option>
-                  <mat-option value="female">Female</mat-option>
-                  <mat-option value="other">Other</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-          <mat-grid-tile colspan="1">
-            <div class="form-group-row small-form-fields">
-              <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                <mat-label>IP/OP Number</mat-label>
-                <input matInput type="number" placeholder="Enter your ip/op">
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-        </mat-grid-list>
-  
-        <mat-grid-list cols="7" rowHeight="75px"> 
-          <mat-grid-tile col>
-            <div class="form-group-row small-form-fields">
-              <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                <mat-label>Phone number</mat-label>
-                <input matInput placeholder="Phone Number" required>
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <div class="form-group-row small-form-fields">
-              <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                <mat-label>Email Id</mat-label>
-                <input matInput placeholder="Enter Email" required>
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <div class="form-group-row small-form-fields">
-              <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                <mat-label>Emergency number</mat-label>
-                <input matInput placeholder="Emergency Number" required>
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-        </mat-grid-list>
-  
-        <mat-grid-list cols="7" rowHeight="75px"> 
-          <mat-grid-tile colspan="1">
-            <div class="form-group-row small-form-fields">
-              <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                <mat-label>Referral Type</mat-label>
-                <mat-select>
-                  <mat-option value="self">Self</mat-option>
-                  <mat-option value="client">Client</mat-option>
-                  <mat-option value="doctor">Doctor</mat-option>
-                </mat-select>
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <div class="form-group-row small-form-fields">
-                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                  <mat-label>Doctor Names</mat-label>
-                  <mat-select>
-                    <mat-option value=""></mat-option>
-                    <mat-option value=""></mat-option>
-                    <mat-option value=""></mat-option>
-                  </mat-select>
-                </mat-form-field>
-            </div>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <div class="form-group-row small-form-fields">
-              <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                <mat-label>Room number</mat-label>
-                <input matInput placeholder="Room Number" required>
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-        </mat-grid-list>      
-  
-        <mat-grid-list cols="7" rowHeight="85px">
-          <mat-grid-tile colspan="1">
-            <div class="search-container">
-              <mat-form-field class="search-box" appearance="outline" floatLabel="always" hideRequiredMarker>
-                <input matInput type="text" placeholder="Search" [(ngModel)]="searchTerm">
-                <button mat-button *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
-                  <mat-icon>close</mat-icon>
-                </button>
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <div class="button-group" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
-              <button mat-raised-button color="primary" class="button-spacing">Add New</button>
-            </div>
-          </mat-grid-tile>
-        </mat-grid-list>
-  
-        <div class="table-container">
-          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-  
-            <ng-container matColumnDef="slNo">
-              <mat-header-cell *matHeaderCellDef> Sl No </mat-header-cell>
-              <mat-cell *matCellDef="let test; let i = index"> {{ i + 1 }} </mat-cell>
-            </ng-container>
-          
-            <ng-container matColumnDef="testCode">
-              <mat-header-cell *matHeaderCellDef> Test Code </mat-header-cell>
-              <mat-cell *matCellDef="let test"> {{ test.testCode }} </mat-cell>
-            </ng-container>
-        
-            <ng-container matColumnDef="testName">
-              <mat-header-cell *matHeaderCellDef> Test Name </mat-header-cell>
-              <mat-cell *matCellDef="let test"> {{ test.testName }} </mat-cell>
-            </ng-container>
-          
-            <ng-container matColumnDef="tat">
-              <mat-header-cell *matHeaderCellDef> TAT </mat-header-cell>
-              <mat-cell *matCellDef="let test"> {{ test.tat }} </mat-cell>
-            </ng-container>
-          
-            <ng-container matColumnDef="price">
-              <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
-              <mat-cell *matCellDef="let test"> {{ test.price }} </mat-cell>
-            </ng-container>
-  
-            <ng-container matColumnDef="edit">
-              <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
-              <mat-cell *matCellDef="let test">
-                <button mat-icon-button color="primary" (click)="onEdit(test)">
-                  <mat-icon>edit</mat-icon>
-                </button>
-              </mat-cell>
-            </ng-container>
-  
-            <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
-          </table>
-          <div class="button-group" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
-            <button mat-raised-button color="primary" class="button-spacing">Quotation Print</button>
-            <button mat-raised-button color="accent" class="button-spacing">Bill Print</button>
-          </div>
-        </div>
-  
-        <div class="cash-container">
-          <div class="cash-item">
-            <img src="assets/img/cash.png" alt="Cash" class="circular-image" />
-            <mat-form-field class="input-field1" appearance="outline" floatLabel="always" hideRequiredMarker>
-              <mat-label>Enter Cash Amount</mat-label>
-              <input matInput type="number" placeholder="Cash"/>
-            </mat-form-field>
-          </div>
-          
-          <div class="cash-item">
-            <img src="assets/img/card.png" alt="Card" class="circular-image" />
-            <mat-form-field class="input-field1" appearance="outline" floatLabel="always" hideRequiredMarker>
-              <mat-label>Enter Card Number</mat-label>
-              <input matInput type="number" placeholder="Card"/>
-            </mat-form-field>
-          </div>
-          
-          <div class="cash-item">
-            <img src="assets/img/online.png" alt="Online" class="circular-image" />
-            <mat-form-field class="input-field1" appearance="outline" floatLabel="always" hideRequiredMarker>
-              <mat-label>Enter Online Amount</mat-label>
-              <input matInput type="number" placeholder="Online"/>
-            </mat-form-field>
-          </div>
-          
-          <div class="cash-item">
-            <img src="assets/img/discount.png" alt="Discount" class="circular-image" />
-            <mat-form-field class="input-field1" appearance="outline" floatLabel="always" hideRequiredMarker>
-              <mat-label>Enter Discount Amount</mat-label>
-              <input matInput type="number" placeholder="Discount"/>
-            </mat-form-field>
-          </div>
-        </div>
-  
-        <div class="col-sm-4 payment-summary">
-          <!-- Gross Amount -->
-          <div class="progress-group fontlab">
-            <div class="progress-group-header align-items-end">
-              <i class="progress-group-icon fontlab"></i>
-              <div>Gross Amount</div>
-              <div class="ml-auto font-weight-bold mr-2"></div>
-            </div>
-            <div class="progress-group-bars">
-              <mat-progress-bar mode="determinate" [value]="" [style.backgroundColor]="getProgressBarColor('green')"></mat-progress-bar>
-            </div>
-          </div>
-        
-          <!-- Discount Amount -->
-          <div class="progress-group fontlab">
-            <div class="progress-group-header align-items-end">
-              <i class="progress-group-icon fontlab"></i>
-              <div>Discount Amount</div>
-              <div class="ml-auto font-weight-bold mr-2"></div>
-            </div>
-            <div class="progress-group-bars">
-              <mat-progress-bar mode="determinate" [value]="" [style.backgroundColor]="getProgressBarColor('yellow')"></mat-progress-bar>
-            </div>
-          </div>
-        
-          <!-- Net Amount -->
-          <div class="progress-group fontlab">
-            <div class="progress-group-header align-items-end">
-              <i class="progress-group-icon fontlab"></i>
-              <div>Net Amount</div>
-              <div class="ml-auto font-weight-bold mr-2"></div>
-            </div>
-            <div class="progress-group-bars">
-              <mat-progress-bar mode="determinate" [value]="" [style.backgroundColor]="getProgressBarColor('green')"></mat-progress-bar>
-            </div>
-          </div>
-        
-          <!-- Paid Amount -->
-          <div class="progress-group fontlab">
-            <div class="progress-group-header align-items-end">
-              <i class="progress-group-icon fontlab"></i>
-              <div>Paid Amount</div>
-              <div class="ml-auto font-weight-bold mr-2"></div>
-            </div>
-            <div class="progress-group-bars">
-              <mat-progress-bar mode="determinate" [value]="" [style.backgroundColor]="getProgressBarColor('blue')"></mat-progress-bar>
-            </div>
-          </div>
-        
-          <!-- Due Amount -->
-          <div class="progress-group fontlab">
-            <div class="progress-group-header align-items-end">
-              <i class="progress-group-icon fontlab"></i>
-              <div>Due Amount</div>
-              <div class="ml-auto font-weight-bold mr-2"></div>
-            </div>
-            <div class="progress-group-bars">
-              <mat-progress-bar mode="determinate" [value]="" [style.backgroundColor]="getProgressBarColor('red')"></mat-progress-bar>
-            </div>
-          </div>
-        
-          <!-- Cancel Amount -->
-          <div class="progress-group fontlab">
-            <div class="progress-group-header align-items-end">
-              <i class="progress-group-icon fontlab"></i>
-              <div>Cancel Amount</div>
-              <div class="ml-auto font-weight-bold mr-2"></div>
-            </div>
-            <div class="progress-group-bars">
-              <mat-progress-bar mode="determinate" [value]="" [style.backgroundColor]="getProgressBarColor('pink')"></mat-progress-bar>
-            </div>
-          </div>
-        </div>
-  
-        <div class="form-container">
-          <mat-radio-group [(ngModel)]="selectedOption">
-            <mat-radio-button value="address">Address</mat-radio-button>
-            <mat-radio-button value="identification">Identification</mat-radio-button>
-            <mat-radio-button value="history">Medical History</mat-radio-button>
-          </mat-radio-group>
-        
-          <!-- Form for Address -->
-          <div class="box-container" *ngIf="selectedOption === 'address' || isFormVisible">
-              <p>Address Details:</p>
-              <mat-grid-list cols="2" rowHeight="90px">
-                <mat-grid-tile cols="1">
-                  <div class="input-field">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>Area</mat-label>
-                      <input matInput [(ngModel)]="address.area" placeholder="Enter area"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="input-field">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>Street</mat-label>
-                      <input matInput [(ngModel)]="address.street" placeholder="Enter street"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-              </mat-grid-list>
-              <mat-grid-list cols="2" rowHeight="90px">
-                  <mat-grid-tile cols="1">
-                    <div class="input-field">
-                      <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                        <mat-label>City</mat-label>
-                        <input matInput [(ngModel)]="address.city" placeholder="Enter city"/>
-                      </mat-form-field>
-                    </div>
-                  </mat-grid-tile>
-                  <mat-grid-tile>
-                    <div class="input-field">
-                      <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                        <mat-label>State</mat-label>
-                        <input matInput [(ngModel)]="address.state" placeholder="Enter state"/>
-                      </mat-form-field>
-                    </div>
-                  </mat-grid-tile>
-              </mat-grid-list> 
-              <mat-grid-list cols="2" rowHeight="90px">
-                <mat-grid-tile cols="1">
-                  <div class="input-field">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>Country</mat-label>
-                      <input matInput [(ngModel)]="address.country" placeholder="Enter country"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="input-field">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>Pin Code</mat-label>
-                      <input matInput [(ngModel)]="address.pincode" placeholder="Enter pincode"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-              </mat-grid-list>
-            </div>
 
-          <!-- Form for Identification -->
-          <div class="box-container" *ngIf="selectedOption === 'identification' || isFormVisible">
-            <p>Identification Details:</p>
-              <mat-grid-list cols="2" rowHeight="90px">
-                <mat-grid-tile cols="1">
-                  <div class="input-field">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>Aadhar Card</mat-label>
-                      <input matInput [(ngModel)]="identification.aadhar" placeholder="Enter Aadhar Number"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="image-container1" *ngIf="selectedFile1">
-                    <img [src]="selectedFile1Url" alt="Selected Image">
-                    <button mat-icon-button class="upload-icon1" color="primary" (click)="uploadImage1()">
-                      <mat-progress-bar *ngIf="uploadProgress !== undefined" mode="determinate" [value]="uploadProgress"></mat-progress-bar>
-                        <img *ngIf="selectedFile1" [src]="selectedFile1Url" alt="Selected Image">
-                          <a class="custom-link" *ngIf="selectedFile1" [href]="selectedFile1Url" download="{{ selectedFile1.name }}">
-                            <mat-icon class="custom-icon">cloud_upload</mat-icon> Download
-                          </a>
-                    </button>
-                  </div>
-                  <input type="file" (change)="onFileSelected1($event)" accept="image/*">
-                </mat-grid-tile>
-              </mat-grid-list>
-              
-              <mat-grid-list cols="2" rowHeight="90px">
-                <mat-grid-tile cols="1">
-                  <div class="input-field">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>Passport</mat-label>
-                      <input matInput [(ngModel)]="identification.passport" placeholder="Enter Passport Number"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="image-container1" *ngIf="selectedFile2">
-                    <img [src]="selectedFile2Url" alt="Selected Image">
-                    <button mat-icon-button class="upload-icon1" color="primary" (click)="uploadImage2()">
-                      <mat-progress-bar *ngIf="uploadProgress !== undefined" mode="determinate" [value]="uploadProgress"></mat-progress-bar>
-                        <img *ngIf="selectedFile2" [src]="selectedFile2Url" alt="Selected Image">
-                          <a class="custom-link" *ngIf="selectedFile2" [href]="selectedFile2Url" download="{{ selectedFile2.name }}">
-                            <mat-icon class="custom-icon">cloud_upload</mat-icon> Download
-                          </a>
-                    </button>
-                  </div>
-                  <input type="file" (change)="onFileSelected2($event)" accept="image/*">
-                </mat-grid-tile>
-              </mat-grid-list>
-    
-              <mat-grid-list cols="2" rowHeight="90px">
-                <mat-grid-tile cols="1">
-                  <div class="input-field">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>Driving License</mat-label>
-                      <input matInput [(ngModel)]="identification.license" placeholder="Enter License Number"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="image-container1" *ngIf="selectedFile3">
-                    <img [src]="selectedFile3Url" alt="Selected Image">
-                    <button mat-icon-button class="upload-icon1" color="primary" (click)="uploadImage3()">
-                      <mat-progress-bar *ngIf="uploadProgress !== undefined" mode="determinate" [value]="uploadProgress"></mat-progress-bar>
-                        <img *ngIf="selectedFile3" [src]="selectedFile3Url" alt="Selected Image">
-                          <a class="custom-link" *ngIf="selectedFile3" [href]="selectedFile3Url" download="{{ selectedFile3.name }}">
-                            <mat-icon class="custom-icon">cloud_upload</mat-icon> Download
-                          </a>
-                    </button>
-                  </div>
-                  <input type="file" (change)="onFileSelected3($event)" accept="image/*">
-                </mat-grid-tile>
-              </mat-grid-list>
-    
-    
-              <mat-grid-list cols="2" rowHeight="90px">
-                <mat-grid-tile cols="1">
-                  <div class="input-field">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>Pan Card</mat-label>
-                      <input matInput [(ngModel)]="identification.pancard" placeholder="Enter Pancard Number"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="image-container1" *ngIf="selectedFile4">
-                    <img [src]="selectedFile4Url" alt="Selected Image">
-                    <button mat-icon-button class="upload-icon1" color="primary" (click)="uploadImage4()">
-                      <mat-progress-bar *ngIf="uploadProgress !== undefined" mode="determinate" [value]="uploadProgress"></mat-progress-bar>
-                        <img *ngIf="selectedFile4" [src]="selectedFile4Url" alt="Selected Image">
-                          <a class="custom-link" *ngIf="selectedFile1" [href]="selectedFile4Url" download="{{ selectedFile4.name }}">
-                            <mat-icon class="custom-icon">cloud_upload</mat-icon> Download
-                          </a>
-                    </button>
-                  </div>
-                  <input type="file" (change)="onFileSelected4($event)" accept="image/*">
-                </mat-grid-tile>
-              </mat-grid-list>
+      <mat-grid-list cols="7" rowHeight="75px">
+        <mat-grid-tile colspan="1">
+          <div class="form-group-row small-form-fields">
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+              <mat-label>Patient Name</mat-label>
+              <input matInput placeholder="Patient Name" required>
+            </mat-form-field>
           </div>
-          
-          <!-- Form for Medical History -->
-          <div class="box-container" *ngIf="selectedOption === 'history' || isFormVisible">
-            <p>General Medical History :</p>
-              <mat-grid-list cols="3" rowHeight="90px">
-                <mat-grid-tile cols="1">
-                  <div class="input-field2">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>Diabetis</mat-label>
-                      <input matInput [(ngModel)]="history.diabetis" placeholder="Enter Diabetis History"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="input-field2">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>Heart</mat-label>
-                      <input matInput [(ngModel)]="history.heart" placeholder="Enter Heart History"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="input-field2">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>Stock</mat-label>
-                      <input matInput [(ngModel)]="history.stock" placeholder="Enter Stock History"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-              </mat-grid-list>
-              <mat-grid-list cols="3" rowHeight="90px">
-                <mat-grid-tile cols="1">
-                  <div class="input-field2">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>Chicken Pox</mat-label>
-                      <input matInput [(ngModel)]="history.chickenpox" placeholder="Enter Chickenpox History"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="input-field2">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>Measles</mat-label>
-                      <input matInput [(ngModel)]="history.measles" placeholder="Enter Measles History"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="input-field2">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>HBV</mat-label>
-                      <input matInput [(ngModel)]="history.hbv" placeholder="Enter HBV History"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-              </mat-grid-list>
-              <mat-grid-list cols="3" rowHeight="90px">
-                <mat-grid-tile cols="1">
-                  <div class="input-field2">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>Current Medicines</mat-label>
-                      <input matInput [(ngModel)]="history.crtMed" placeholder="Enter Current Medicines History"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-                <mat-grid-tile>
-                  <div class="input-field2">
-                    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                      <mat-label>Others</mat-label>
-                      <input matInput [(ngModel)]="history.others" placeholder="Enter Others History"/>
-                    </mat-form-field>
-                  </div>
-                </mat-grid-tile>
-              </mat-grid-list>
-            </div>
-            <div class="button-container1" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
-              <button mat-raised-button class="button-spacing1" color="primary" (click)="saveDetails()">Save</button>
-              <button mat-raised-button class="button-spacing1" color="warn" (click)="clearDetails()">Clear</button>
-              <button mat-raised-button class="button-spacing1" color="accent" (click)="closeDetails()">Close</button>
-            </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="form-group-row small-form-fields">
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+              <mat-label>Age</mat-label>
+              <input matInput type="number" placeholder="Enter your age" [(ngModel)]="age">
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="form-group-row small-form-fields">
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+              <mat-label>Specilisation</mat-label>
+              <input matInput placeholder="Enter Specilisation" required>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="7" rowHeight="75px">
+        <mat-grid-tile colspan="1">
+          <div class="form-group-row small-form-fields">
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+              <mat-label>Date of Birth</mat-label>
+              <input matInput [matDatepicker]="dobPicker">
+              <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+              <mat-datepicker #dobPicker></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="form-group-row small-form-fields">
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+              <mat-label>Gender</mat-label>
+              <mat-select>
+                <mat-option value="male">Male</mat-option>
+                <mat-option value="female">Female</mat-option>
+                <mat-option value="other">Other</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1">
+          <div class="form-group-row small-form-fields">
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+              <mat-label>IP/OP Number</mat-label>
+              <input matInput type="number" placeholder="Enter your ip/op">
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="7" rowHeight="75px">
+        <mat-grid-tile col>
+          <div class="form-group-row small-form-fields">
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+              <mat-label>Phone number</mat-label>
+              <input matInput placeholder="Phone Number" required>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="form-group-row small-form-fields">
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+              <mat-label>Email Id</mat-label>
+              <input matInput placeholder="Enter Email" required>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="form-group-row small-form-fields">
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+              <mat-label>Emergency number</mat-label>
+              <input matInput placeholder="Emergency Number" required>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="7" rowHeight="75px">
+        <mat-grid-tile colspan="1">
+          <div class="form-group-row small-form-fields">
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+              <mat-label>Referral Type</mat-label>
+              <mat-select>
+                <mat-option value="self">Self</mat-option>
+                <mat-option value="client">Client</mat-option>
+                <mat-option value="doctor">Doctor</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="form-group-row small-form-fields">
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+              <mat-label>Doctor Names</mat-label>
+              <mat-select>
+                <mat-option value=""></mat-option>
+                <mat-option value=""></mat-option>
+                <mat-option value=""></mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="form-group-row small-form-fields">
+            <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+              <mat-label>Room number</mat-label>
+              <input matInput placeholder="Room Number" required>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="7" rowHeight="85px">
+        <mat-grid-tile colspan="1">
+          <div class="search-container">
+            <mat-form-field class="search-box" appearance="outline" floatLabel="always" hideRequiredMarker>
+              <input matInput type="text" placeholder="Search" [(ngModel)]="searchTerm">
+              <button mat-button *ngIf="searchTerm" matSuffix mat-icon-button aria-label="Clear"
+                (click)="clearSearch()">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="button-group" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+            <button mat-raised-button color="primary" class="button-spacing">Add New</button>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <div class="table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="slNo">
+            <mat-header-cell *matHeaderCellDef> Sl No </mat-header-cell>
+            <mat-cell *matCellDef="let test; let i = index"> {{ i + 1 }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="testCode">
+            <mat-header-cell *matHeaderCellDef> Test Code </mat-header-cell>
+            <mat-cell *matCellDef="let test"> {{ test.testCode }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="testName">
+            <mat-header-cell *matHeaderCellDef> Test Name </mat-header-cell>
+            <mat-cell *matCellDef="let test"> {{ test.testName }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="tat">
+            <mat-header-cell *matHeaderCellDef> TAT </mat-header-cell>
+            <mat-cell *matCellDef="let test"> {{ test.tat }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+            <mat-cell *matCellDef="let test"> {{ test.price }} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="edit">
+            <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+            <mat-cell *matCellDef="let test">
+              <button mat-icon-button color="primary" (click)="onEdit(test)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+        </table>
+        <div class="button-group" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+          <button mat-raised-button color="primary" class="button-spacing">Quotation Print</button>
+          <button mat-raised-button color="accent" class="button-spacing">Bill Print</button>
         </div>
+      </div>
+
+      <div class="cash-container">
+        <div class="cash-item">
+          <img src="assets/img/cash.png" alt="Cash" class="circular-image" />
+          <mat-form-field class="input-field1" appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Enter Cash Amount</mat-label>
+            <input matInput type="number" placeholder="Cash" />
+          </mat-form-field>
+        </div>
+
+        <div class="cash-item">
+          <img src="assets/img/card.png" alt="Card" class="circular-image" />
+          <mat-form-field class="input-field1" appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Enter Card Number</mat-label>
+            <input matInput type="number" placeholder="Card" />
+          </mat-form-field>
+        </div>
+
+        <div class="cash-item">
+          <img src="assets/img/online.png" alt="Online" class="circular-image" />
+          <mat-form-field class="input-field1" appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Enter Online Amount</mat-label>
+            <input matInput type="number" placeholder="Online" />
+          </mat-form-field>
+        </div>
+
+        <div class="cash-item">
+          <img src="assets/img/discount.png" alt="Discount" class="circular-image" />
+          <mat-form-field class="input-field1" appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Enter Discount Amount</mat-label>
+            <input matInput type="number" placeholder="Discount" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-sm-4 payment-summary">
+        <!-- Gross Amount -->
+        <div class="progress-group fontlab">
+          <div class="progress-group-header align-items-end">
+            <i class="progress-group-icon fontlab"></i>
+            <div>Gross Amount</div>
+            <div class="ml-auto font-weight-bold mr-2"></div>
+          </div>
+          <div class="progress-group-bars">
+            <mat-progress-bar mode="determinate" [value]=""
+              [style.backgroundColor]="getProgressBarColor('green')"></mat-progress-bar>
+          </div>
+        </div>
+
+        <!-- Discount Amount -->
+        <div class="progress-group fontlab">
+          <div class="progress-group-header align-items-end">
+            <i class="progress-group-icon fontlab"></i>
+            <div>Discount Amount</div>
+            <div class="ml-auto font-weight-bold mr-2"></div>
+          </div>
+          <div class="progress-group-bars">
+            <mat-progress-bar mode="determinate" [value]=""
+              [style.backgroundColor]="getProgressBarColor('yellow')"></mat-progress-bar>
+          </div>
+        </div>
+
+        <!-- Net Amount -->
+        <div class="progress-group fontlab">
+          <div class="progress-group-header align-items-end">
+            <i class="progress-group-icon fontlab"></i>
+            <div>Net Amount</div>
+            <div class="ml-auto font-weight-bold mr-2"></div>
+          </div>
+          <div class="progress-group-bars">
+            <mat-progress-bar mode="determinate" [value]=""
+              [style.backgroundColor]="getProgressBarColor('green')"></mat-progress-bar>
+          </div>
+        </div>
+
+        <!-- Paid Amount -->
+        <div class="progress-group fontlab">
+          <div class="progress-group-header align-items-end">
+            <i class="progress-group-icon fontlab"></i>
+            <div>Paid Amount</div>
+            <div class="ml-auto font-weight-bold mr-2"></div>
+          </div>
+          <div class="progress-group-bars">
+            <mat-progress-bar mode="determinate" [value]=""
+              [style.backgroundColor]="getProgressBarColor('blue')"></mat-progress-bar>
+          </div>
+        </div>
+
+        <!-- Due Amount -->
+        <div class="progress-group fontlab">
+          <div class="progress-group-header align-items-end">
+            <i class="progress-group-icon fontlab"></i>
+            <div>Due Amount</div>
+            <div class="ml-auto font-weight-bold mr-2"></div>
+          </div>
+          <div class="progress-group-bars">
+            <mat-progress-bar mode="determinate" [value]=""
+              [style.backgroundColor]="getProgressBarColor('red')"></mat-progress-bar>
+          </div>
+        </div>
+
+        <!-- Cancel Amount -->
+        <div class="progress-group fontlab">
+          <div class="progress-group-header align-items-end">
+            <i class="progress-group-icon fontlab"></i>
+            <div>Cancel Amount</div>
+            <div class="ml-auto font-weight-bold mr-2"></div>
+          </div>
+          <div class="progress-group-bars">
+            <mat-progress-bar mode="determinate" [value]=""
+              [style.backgroundColor]="getProgressBarColor('pink')"></mat-progress-bar>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-container">
+        <mat-radio-group [(ngModel)]="selectedOption">
+          <mat-radio-button value="address">Address</mat-radio-button>
+          <mat-radio-button value="identification">Identification</mat-radio-button>
+          <mat-radio-button value="history">Medical History</mat-radio-button>
+        </mat-radio-group>
+
+        <!-- Form for Address -->
+        <div class="box-container" *ngIf="selectedOption === 'address' || isFormVisible">
+          <p>Address Details:</p>
+          <mat-grid-list cols="2" rowHeight="90px">
+            <mat-grid-tile cols="1">
+              <div class="input-field">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>Area</mat-label>
+                  <input matInput [(ngModel)]="address.area" placeholder="Enter area" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="input-field">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>Street</mat-label>
+                  <input matInput [(ngModel)]="address.street" placeholder="Enter street" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="2" rowHeight="90px">
+            <mat-grid-tile cols="1">
+              <div class="input-field">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>City</mat-label>
+                  <input matInput [(ngModel)]="address.city" placeholder="Enter city" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="input-field">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>State</mat-label>
+                  <input matInput [(ngModel)]="address.state" placeholder="Enter state" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="2" rowHeight="90px">
+            <mat-grid-tile cols="1">
+              <div class="input-field">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>Country</mat-label>
+                  <input matInput [(ngModel)]="address.country" placeholder="Enter country" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="input-field">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>Pin Code</mat-label>
+                  <input matInput [(ngModel)]="address.pincode" placeholder="Enter pincode" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+
+        <!-- Form for Identification -->
+        <div class="box-container" *ngIf="selectedOption === 'identification' || isFormVisible">
+          <p>Identification Details:</p>
+          <mat-grid-list cols="2" rowHeight="90px">
+            <mat-grid-tile cols="1">
+              <div class="input-field">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>Aadhar Card</mat-label>
+                  <input matInput [(ngModel)]="identification.aadhar" placeholder="Enter Aadhar Number" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="image-container1" *ngIf="selectedFile1">
+                <img [src]="selectedFile1Url" alt="Selected Image">
+                <button mat-icon-button class="upload-icon1" color="primary" (click)="uploadImage1()">
+                  <mat-progress-bar *ngIf="uploadProgress !== undefined" mode="determinate"
+                    [value]="uploadProgress"></mat-progress-bar>
+                  <img *ngIf="selectedFile1" [src]="selectedFile1Url" alt="Selected Image">
+                  <a class="custom-link" *ngIf="selectedFile1" [href]="selectedFile1Url"
+                    download="{{ selectedFile1.name }}">
+                    <mat-icon class="custom-icon">cloud_upload</mat-icon> Download
+                  </a>
+                </button>
+              </div>
+              <input type="file" (change)="onFileSelected1($event)" accept="image/*">
+            </mat-grid-tile>
+          </mat-grid-list>
+
+          <mat-grid-list cols="2" rowHeight="90px">
+            <mat-grid-tile cols="1">
+              <div class="input-field">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>Passport</mat-label>
+                  <input matInput [(ngModel)]="identification.passport" placeholder="Enter Passport Number" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="image-container1" *ngIf="selectedFile2">
+                <img [src]="selectedFile2Url" alt="Selected Image">
+                <button mat-icon-button class="upload-icon1" color="primary" (click)="uploadImage2()">
+                  <mat-progress-bar *ngIf="uploadProgress !== undefined" mode="determinate"
+                    [value]="uploadProgress"></mat-progress-bar>
+                  <img *ngIf="selectedFile2" [src]="selectedFile2Url" alt="Selected Image">
+                  <a class="custom-link" *ngIf="selectedFile2" [href]="selectedFile2Url"
+                    download="{{ selectedFile2.name }}">
+                    <mat-icon class="custom-icon">cloud_upload</mat-icon> Download
+                  </a>
+                </button>
+              </div>
+              <input type="file" (change)="onFileSelected2($event)" accept="image/*">
+            </mat-grid-tile>
+          </mat-grid-list>
+
+          <mat-grid-list cols="2" rowHeight="90px">
+            <mat-grid-tile cols="1">
+              <div class="input-field">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>Driving License</mat-label>
+                  <input matInput [(ngModel)]="identification.license" placeholder="Enter License Number" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="image-container1" *ngIf="selectedFile3">
+                <img [src]="selectedFile3Url" alt="Selected Image">
+                <button mat-icon-button class="upload-icon1" color="primary" (click)="uploadImage3()">
+                  <mat-progress-bar *ngIf="uploadProgress !== undefined" mode="determinate"
+                    [value]="uploadProgress"></mat-progress-bar>
+                  <img *ngIf="selectedFile3" [src]="selectedFile3Url" alt="Selected Image">
+                  <a class="custom-link" *ngIf="selectedFile3" [href]="selectedFile3Url"
+                    download="{{ selectedFile3.name }}">
+                    <mat-icon class="custom-icon">cloud_upload</mat-icon> Download
+                  </a>
+                </button>
+              </div>
+              <input type="file" (change)="onFileSelected3($event)" accept="image/*">
+            </mat-grid-tile>
+          </mat-grid-list>
+
+
+          <mat-grid-list cols="2" rowHeight="90px">
+            <mat-grid-tile cols="1">
+              <div class="input-field">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>Pan Card</mat-label>
+                  <input matInput [(ngModel)]="identification.pancard" placeholder="Enter Pancard Number" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="image-container1" *ngIf="selectedFile4">
+                <img [src]="selectedFile4Url" alt="Selected Image">
+                <button mat-icon-button class="upload-icon1" color="primary" (click)="uploadImage4()">
+                  <mat-progress-bar *ngIf="uploadProgress !== undefined" mode="determinate"
+                    [value]="uploadProgress"></mat-progress-bar>
+                  <img *ngIf="selectedFile4" [src]="selectedFile4Url" alt="Selected Image">
+                  <a class="custom-link" *ngIf="selectedFile1" [href]="selectedFile4Url"
+                    download="{{ selectedFile4.name }}">
+                    <mat-icon class="custom-icon">cloud_upload</mat-icon> Download
+                  </a>
+                </button>
+              </div>
+              <input type="file" (change)="onFileSelected4($event)" accept="image/*">
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+
+        <!-- Form for Medical History -->
+        <div class="box-container" *ngIf="selectedOption === 'history' || isFormVisible">
+          <p>General Medical History :</p>
+          <mat-grid-list cols="3" rowHeight="90px">
+            <mat-grid-tile cols="1">
+              <div class="input-field2">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>Diabetis</mat-label>
+                  <input matInput [(ngModel)]="history.diabetis" placeholder="Enter Diabetis History" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="input-field2">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>Heart</mat-label>
+                  <input matInput [(ngModel)]="history.heart" placeholder="Enter Heart History" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="input-field2">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>Stock</mat-label>
+                  <input matInput [(ngModel)]="history.stock" placeholder="Enter Stock History" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="3" rowHeight="90px">
+            <mat-grid-tile cols="1">
+              <div class="input-field2">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>Chicken Pox</mat-label>
+                  <input matInput [(ngModel)]="history.chickenpox" placeholder="Enter Chickenpox History" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="input-field2">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>Measles</mat-label>
+                  <input matInput [(ngModel)]="history.measles" placeholder="Enter Measles History" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="input-field2">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>HBV</mat-label>
+                  <input matInput [(ngModel)]="history.hbv" placeholder="Enter HBV History" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+          <mat-grid-list cols="3" rowHeight="90px">
+            <mat-grid-tile cols="1">
+              <div class="input-field2">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>Current Medicines</mat-label>
+                  <input matInput [(ngModel)]="history.crtMed" placeholder="Enter Current Medicines History" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <div class="input-field2">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                  <mat-label>Others</mat-label>
+                  <input matInput [(ngModel)]="history.others" placeholder="Enter Others History" />
+                </mat-form-field>
+              </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+        <div class="button-container1" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+          <button mat-raised-button class="button-spacing1" color="primary" (click)="saveDetails()">Save</button>
+          <button mat-raised-button class="button-spacing1" color="warn" (click)="clearDetails()">Clear</button>
+          <button mat-raised-button class="button-spacing1" color="accent" (click)="closeDetails()">Close</button>
+        </div>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

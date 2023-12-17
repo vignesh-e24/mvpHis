@@ -1,61 +1,49 @@
+.mat-sidenav-container {
+  height: 93%;
+}
+
+.mat-sidenav {
+  width: 440px; 
+}
+
 .mat-toolbar {
-    background-color: #2bb1ea; /* Customize the background color as needed */
-    color: white; /* Customize the text color as needed */
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height:7%;
-    z-index: 1000;
+  background-color: #2bb1ea; /* Customize the background color as needed */
+  color: white; /* Customize the text color as needed */
+  height:7%;
+}
+
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.search-field {
+  width:100%; 
+}
+
+.mat-list-item{
+  align-items: center;
+  cursor: pointer;
+}
+
+
+.blink {
+  animation: blinker 1.5s linear infinite;
+  color: #2bb1ea;
+  font-family: sans-serif;
+  width:"100%";
+  direction:"right";
+  height:"25px";
+}
+
+@keyframes blinker {
+ 50% {
+    opacity: 0;
   }
 
-  .spacer {
-    flex: 1;
-  }
-  
-  .user-info {
-    display: flex;
-    align-items: center;
-  }
-  
-  .username {
-    font-size: 20px;
-    margin-right: 12px;
-  }
+}
 
-  .mat-sidenav-container {
-    height : 91%;
-    margin-top: 40px;
-  }
-  
-  .mat-sidenav {
-    width: 400px; 
-  }
-  
-  .search-field {
-    width:100%; 
-  }
-  
-  .mat-list-item{
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .blink {
-    animation: blinker 1.5s linear infinite;
-    color: #2bb1ea;
-    font-family: sans-serif;
-    width:"100%";
-    direction:"right";
-    /* height:"25px"; */
-  }
-  
-  @keyframes blinker {
-   50% {
-      opacity: 0;
-    }
-  }
-  
-  .childItem {
-    margin-left: 70px; /* Adjust the margin as needed for indentation */
-  }
+
+
+
