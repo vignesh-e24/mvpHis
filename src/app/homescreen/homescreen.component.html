@@ -38,9 +38,10 @@
                     <div *ngIf="menuItem.expanded">
                         <mat-list class="childItem">
                             <mat-list-item *ngFor="let childItem of menuItem.children"
-                                (click)="expandChildItem(childItem)">
+                                (click)="expandChildItem(childItem, menuItem.parent)">
                                 {{ childItem }}
                             </mat-list-item>
+
                         </mat-list>
                     </div>
                 </ng-container>
