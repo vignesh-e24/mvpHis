@@ -7,6 +7,7 @@ import { HomeComponent } from './homescreen/home/home.component';
 import { BillingComponent } from './billing/billing.component';
 import { ForgotPasswordComponent } from './login/forgotpassword/forgotpassword.component';
 import { PatientRegistrationComponent } from './patientregistration/patient-registration.component';
+import { TestMasterComponent } from './test-master/test-master.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { ProductsComponent } from './inventory/products/products.component';
 import { SupplierComponent } from './inventory/supplier/supplier.component';
@@ -14,6 +15,8 @@ import { ManufacturerComponent } from './inventory/manufacturer/manufacturer.com
 import { ShelfComponent } from './inventory/shelf/shelf.component';
 import { ItemLocationComponent } from './inventory/item-location/item-location.component';
 import { QuantityComponent } from './inventory/quantity/quantity.component';
+import { LabpatientComponent } from './labpatient/labpatient.component';
+import { EditAddPatientComponent } from './edit-add-patient/edit-add-patient.component';
 
 const routes: Routes = [
   {
@@ -41,6 +44,9 @@ const routes: Routes = [
           { path: 'itemLocation', component: ItemLocationComponent },
         ],
       },
+	  { path: 'billing', component: BillingComponent },
+	 { path: 'patientregister', component: PatientRegistrationComponent },
+		{ path: 'testMaster',component:TestMasterComponent}
     ],
   },
 
@@ -50,6 +56,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'billing', component: BillingComponent },
   { path: 'patientregister', component: PatientRegistrationComponent },
+  { path: 'labpatient', component: LabpatientComponent },
+  { path: 'editaddpatient', component: EditAddPatientComponent }
 ];
 
 @NgModule({

@@ -1,0 +1,145 @@
+<div class="box-container">
+    <h2><b>Worklist</b></h2>
+</div>
+
+<div class="button-container" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+    <button mat-raised-button color="primary" class="button-spacing">Search</button>
+    <button mat-raised-button color="primary" class="button-spacing">Clear</button>
+    <button mat-raised-button color="primary" class="button-spacing">Save</button>
+</div>
+
+<div class="box-container1">
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Search">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+</div>
+
+<div class="box-container2">
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Branch">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Department">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Services">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Ref">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Ref By">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Refer By">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Status">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+</div>
+
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="isAllSelected()"
+                [indeterminate]="selection.hasValue() && !isAllSelected()" [disabled]="dataSource.data.length === 0">
+            </mat-checkbox>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()" (change)="toggleSelection(row)"
+                [checked]="selection.isSelected(row)">
+            </mat-checkbox>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sNo">
+        <mat-header-cell *matHeaderCellDef>S.No</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.sNo }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="visit">
+        <mat-header-cell *matHeaderCellDef>Visit</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.visit }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nameAgeGen">
+        <mat-header-cell *matHeaderCellDef>Name Age/Gen</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.nameAgeGen }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="container">
+        <mat-header-cell *matHeaderCellDef>Container</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.container }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="test">
+        <mat-header-cell *matHeaderCellDef>Test</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.test }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="refer">
+        <mat-header-cell *matHeaderCellDef>Refer By</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.refer }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="regDate">
+        <mat-header-cell *matHeaderCellDef>Registered DateTime</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.regDate }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="collectedDate">
+        <mat-header-cell *matHeaderCellDef>Sample Colt DateTime</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.collectedDate }}</mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="remark">
+        <mat-header-cell *matHeaderCellDef>Remark</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <mat-form-field class="remark-input" appearance="outline">
+                <input matInput [(ngModel)]="row.remark" [disabled]="!isRowEditable(row)" placeholder="Enter Remark">
+            </mat-form-field>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

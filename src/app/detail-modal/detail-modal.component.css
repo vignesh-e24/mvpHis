@@ -1,0 +1,53 @@
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.action-button {
+    margin-right: 10px;
+}
+
+.user-table {
+    margin-top: 20px;
+}
+
+.user-table mat-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-table mat-table,
+.user-table th,
+.user-table td {
+    border: 1px solid #ccc;
+}
+
+.user-table th,
+.user-table td {
+    padding: 8px;
+    text-align: left;
+}
+
+.user-table thead {
+    background-color: #f2f2f2;
+}
+
+.user-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.user-table tbody tr:hover {
+    background-color: #e5e5e5;
+}
+
+.button {
+    background-color: aqua;
+    margin-left: 50px;
+    margin-right: 8px;
+}
+
+.modal-field {
+    margin-right: 10px;
+    margin-left: 10px;
+}
