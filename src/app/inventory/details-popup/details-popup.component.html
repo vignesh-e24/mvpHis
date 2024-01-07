@@ -1,0 +1,288 @@
+<div style="margin: 35px 35px 0px 35px">
+    <ng-container *ngIf="selectedForm === 'product'">
+        <div style="
+        font-size: 20px;
+        text-align: center;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      ">
+            Add Product
+        </div>
+        <mat-card-content style="margin-top: 3px">
+            <form [formGroup]="productForm">
+                <div fxLayout="row" fxLayoutGap="55px" style="margin-top: 20px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Batch No</mat-label>
+                        <input matInput formControlName="batchNo" placeholder="Batch No" />
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Product Name</mat-label>
+                        <input matInput formControlName="productName" placeholder="Product Name" />
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutGap="55px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Supplier</mat-label>
+                        <mat-select formControlName="supplier">
+                            <mat-option value="option1">Option 1</mat-option>
+                            <mat-option value="option2">Option 2</mat-option>
+                            <mat-option value="option3">Option 3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Manufacturer</mat-label>
+                        <mat-select formControlName="manufacturer">
+                            <mat-option value="option1">Option 1</mat-option>
+                            <mat-option value="option2">Option 2</mat-option>
+                            <mat-option value="option3">Option 3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row" fxLayoutGap="20px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Start Date</mat-label>
+                        <input matInput [matDatepicker]="startDatePicker" formControlName="startDate"
+                            placeholder="Start Date" />
+                        <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #startDatePicker></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>End Date</mat-label>
+                        <input matInput [matDatepicker]="endDatePicker" formControlName="endDate"
+                            placeholder="End Date" />
+                        <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #endDatePicker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row" fxLayoutGap="55px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Cost Price</mat-label>
+                        <input matInput formControlName="costPrice" placeholder="Cost Price" />
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Sell Price</mat-label>
+                        <input matInput formControlName="sellPrice" placeholder="Sell Price" />
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row" fxLayoutGap="55px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Quantity</mat-label>
+                        <mat-select formControlName="quantity">
+                            <mat-option value="option1">Option 1</mat-option>
+                            <mat-option value="option2">Option 2</mat-option>
+                            <mat-option value="option3">Option 3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>HSN</mat-label>
+                        <mat-select formControlName="hsn">
+                            <mat-option value="option1">Option 1</mat-option>
+                            <mat-option value="option2">Option 2</mat-option>
+                            <mat-option value="option3">Option 3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div fxLayout="row" fxLayoutGap="55px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Shelf</mat-label>
+                        <mat-select formControlName="shelf">
+                            <mat-option value="option1">Option 1</mat-option>
+                            <mat-option value="option2">Option 2</mat-option>
+                            <mat-option value="option3">Option 3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Item Location</mat-label>
+                        <mat-select formControlName="itemLocation">
+                            <mat-option value="option1">Option 1</mat-option>
+                            <mat-option value="option2">Option 2</mat-option>
+                            <mat-option value="option3">Option 3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div style="padding-bottom: 20px">
+                    <button style="margin-right: 10px" mat-raised-button (click)="onSave()">
+                        Save
+                    </button>
+                    <button mat-raised-button (click)="onClear()">Clear</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </ng-container>
+
+    <ng-container style="margin: 35px 35px 0px 35px" *ngIf="selectedForm === 'supplier'">
+        <div style="
+        font-size: 20px;
+        text-align: center;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      ">
+            Add Supplier
+        </div>
+
+        <mat-card-content style="margin-top: 3px">
+            <form [formGroup]="supplierForm">
+                <div fxLayout="column" fxLayoutGap="55px" style="margin-top: 20px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Supplier Name</mat-label>
+                        <input matInput formControlName="supplier" placeholder="Supplier Name" />
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Address</mat-label>
+                        <input matInput formControlName="address" placeholder="Address" />
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput formControlName="phoneNumber" placeholder="+91 123-4567-890" />
+                    </mat-form-field>
+                </div>
+
+                <div style="padding-bottom: 20px">
+                    <button style="margin-right: 10px" mat-raised-button (click)="onSave()">
+                        Save
+                    </button>
+                    <button mat-raised-button (click)="onClear()">Clear</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </ng-container>
+
+    <ng-container style="margin: 35px 35px 0px 35px" *ngIf="selectedForm === 'manufacturer'">
+        <div style="
+        font-size: 20px;
+        text-align: center;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      ">
+            Add Manufacturer
+        </div>
+
+        <mat-card-content style="margin-top: 3px">
+            <form [formGroup]="manufacturerForm">
+                <div fxLayout="column" fxLayoutGap="55px" style="margin-top: 20px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Manufacturer Name</mat-label>
+                        <input matInput formControlName="manufacturer" placeholder="Manufacturer Name" />
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Address</mat-label>
+                        <input matInput formControlName="address" placeholder="Address" />
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput formControlName="phoneNumber" placeholder="+91 123-4567-890" />
+                    </mat-form-field>
+                </div>
+
+                <div style="padding-bottom: 20px">
+                    <button style="margin-right: 10px" mat-raised-button (click)="onSave()">
+                        Save
+                    </button>
+                    <button mat-raised-button (click)="onClear()">Clear</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </ng-container>
+
+    <ng-container *ngIf="selectedForm === 'shelf'">
+        <div style="
+        font-size: 20px;
+        text-align: center;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      ">
+            Add Shelf
+        </div>
+        <mat-card-content style="margin-top: 3px">
+            <form [formGroup]="shelfForm">
+                <div fxLayout="column" fxLayoutGap="55px" style="margin-top: 20px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Shelf</mat-label>
+                        <input matInput formControlName="shelf" placeholder="Shelf" />
+                    </mat-form-field>
+                </div>
+                <div style="padding-bottom: 20px">
+                    <button style="margin-right: 10px" mat-raised-button (click)="onSave()">
+                        Save
+                    </button>
+                    <button mat-raised-button (click)="onClear()">Clear</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </ng-container>
+
+    <ng-container *ngIf="selectedForm === 'itemLocation'">
+        <div style="
+        font-size: 20px;
+        text-align: center;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      ">
+            Add Item Location
+        </div>
+        <mat-card-content style="margin-top: 3px">
+            <form [formGroup]="itemLocationForm">
+                <div fxLayout="column" fxLayoutGap="55px" style="margin-top: 20px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Item Location</mat-label>
+                        <input matInput formControlName="itemLocation" placeholder="Item Location" />
+                    </mat-form-field>
+                </div>
+                <div style="padding-bottom: 20px">
+                    <button style="margin-right: 10px" mat-raised-button (click)="onSave()">
+                        Save
+                    </button>
+                    <button mat-raised-button (click)="onClear()">Clear</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </ng-container>
+
+    <ng-container *ngIf="selectedForm === 'quantity'">
+        <div style="
+        font-size: 20px;
+        text-align: center;
+        color: #333;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      ">
+            Add Quantity
+        </div>
+        <mat-card-content style="margin-top: 3px">
+            <form [formGroup]="quantityForm">
+                <div fxLayout="column" fxLayoutGap="55px" style="margin-top: 20px">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Quantity</mat-label>
+                        <input matInput formControlName="quantity" placeholder="Quantity" />
+                    </mat-form-field>
+                </div>
+                <div style="padding-bottom: 20px">
+                    <button style="margin-right: 10px" mat-raised-button (click)="onSave()">
+                        Save
+                    </button>
+                    <button mat-raised-button (click)="onClear()">Clear</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </ng-container>
+</div>

@@ -1,36 +1,36 @@
 <mat-card class="image-container">
   <img [src]="uploadedImagePath" alt="Uploaded Image" class="image-fill"></mat-card>
 <mat-card-content>
-      <div class="form-container">
-        <div class="column">
-          <div class="form-field smaller-label-box" *ngFor="let label of labelsLeft; let i = index">
-            <mat-form-field  appearance="outline">
-              <mat-label><i class="fas" [ngClass]="getIconClass(i)"></i>{{ label }}</mat-label>
-              <input matInput>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="column">
-          <div class="form-field1 smaller-label-box1" *ngFor="let label of labelsRight; let i = index">
-            <mat-form-field appearance="outline" >
-              <mat-label><i class="fas" [ngClass]="getIconClass1(i)"></i>{{ label }}</mat-label>
-              <input matInput>
-            </mat-form-field>
-          </div>
-        </div>
-        <div class="column">
-          <div class="form-field2 smaller-label-box2" *ngFor="let label of labelsCenter; let i = index">
-            <mat-form-field appearance="outline" >
-              <mat-label><i class="fas" [ngClass]="getIconClass2(i)"></i>{{ label }}</mat-label>
-              <input matInput>
-            </mat-form-field>
-          </div>
-        </div>
+  <div class="form-container">
+    <div class="column">
+      <div class="form-field smaller-label-box" *ngFor="let label of labelsLeft; let i = index">
+        <mat-form-field appearance="outline">
+          <mat-label><i class="fas" [ngClass]="getIconClass(i)"></i>{{ label }}</mat-label>
+          <input matInput>
+        </mat-form-field>
       </div>
+    </div>
+    <div class="column">
+      <div class="form-field1 smaller-label-box1" *ngFor="let label of labelsRight; let i = index">
+        <mat-form-field appearance="outline">
+          <mat-label><i class="fas" [ngClass]="getIconClass1(i)"></i>{{ label }}</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="column">
+      <div class="form-field2 smaller-label-box2" *ngFor="let label of labelsCenter; let i = index">
+        <mat-form-field appearance="outline">
+          <mat-label><i class="fas" [ngClass]="getIconClass2(i)"></i>{{ label }}</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
 
   <div class="bmi-calculator-container">
     <div class="Height">
-      <mat-form-field appearance="outline">  
+      <mat-form-field appearance="outline">
         <mat-label>Height (cm)</mat-label>
         <input matInput [(ngModel)]="height" (input)="calculateBMI()">
       </mat-form-field>
@@ -38,7 +38,7 @@
     <div class="Weight">
       <mat-form-field appearance="outline">
         <mat-label>Weight (kg)</mat-label>
-        <input matInput [(ngModel)]="weight" (input)="calculateBMI()"> 
+        <input matInput [(ngModel)]="weight" (input)="calculateBMI()">
       </mat-form-field>
     </div>
     <div class="BMI">
@@ -50,162 +50,174 @@
   </div>
 </mat-card-content>
 
-  <div class="form-container1">
-      <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style"[(ngModel)]="selectedOption">
-        <mat-button-toggle [value]="'VACINATIONRECORD'" [class.active-button]="selectedOption === 'VACINATION RECORD'">VACINATION RECORD</mat-button-toggle>
-        <mat-button-toggle [value]="'FIRSTAID'" [class.active-button]="selectedOption === 'FIRST AID'">FIRST AID</mat-button-toggle>
-        <mat-button-toggle [value]="'DIETARYREQUIREMENTS'" [class.active-button]="selectedOption === 'DIETARY REQUIREMENTS'">DIETARY REQUIREMENTS</mat-button-toggle>
-      </mat-button-toggle-group>       
-    
-      <!-- Form for VACINATIONRECORD -->
-      <div class="box-container" *ngIf="selectedOption === 'VACINATIONRECORD' || isFormVisible">
-          <p>VACINATION RECORD:</p>
-          <div class="table-container">
-            <div class="button-container1" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
-              <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary" (click)="saveDetails()">Save</button>
-              <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary" (click)="clearDetails()">Clear</button>
-              <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary" (click)="closeDetails()">Close</button>
-            </div>
-            
-            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    
-              <ng-container matColumnDef="slNo">
-                <mat-header-cell *matHeaderCellDef> Sl No </mat-header-cell>
-                <mat-cell *matCellDef="let test; let i = index"> {{ i + 1 }} </mat-cell>
-              </ng-container>
-            
-              <ng-container matColumnDef="dose">
-                <mat-header-cell *matHeaderCellDef>DOSE </mat-header-cell>
-                <mat-cell *matCellDef="let test"> {{ test.dose }} </mat-cell>
-              </ng-container>
-          
-              <ng-container matColumnDef="dosage">
-                <mat-header-cell *matHeaderCellDef>DOSAGE</mat-header-cell>
-                <mat-cell *matCellDef="let test"> {{ test.dosage }} </mat-cell>
-              </ng-container>
-            
-              <ng-container matColumnDef="lot">
-                <mat-header-cell *matHeaderCellDef> LOT NUMBER </mat-header-cell>
-                <mat-cell *matCellDef="let test"> {{ test.lot }} </mat-cell>
-              </ng-container>
-            
-              <ng-container matColumnDef="manufacturer">
-                <mat-header-cell *matHeaderCellDef> MANUFAUTURER </mat-header-cell>
-                <mat-cell *matCellDef="let test"> {{ test.manufacturer }} </mat-cell>
-              </ng-container>
-            
-              <ng-container matColumnDef="edit">
-                <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
-                <mat-cell *matCellDef="let test">
-                  <button mat-icon-button color="primary" (click)="onEdit(test)">
-                    <mat-icon>edit</mat-icon>
-                  </button>
-                </mat-cell>
-              </ng-container>
-              
-              <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
-              <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
-            </table>
-    </div>
-        </div>
-    <!-- Form for FIRST AID -->
-    <div class="box-container" *ngIf="selectedOption === 'FIRSTAID' || isFormVisible">
-      <p>FIRST AID:</p>
-      <div class="table-container">
-        <div class="button-container1" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
-          <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary" (click)="saveDetails()">Save</button>
-          <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary" (click)="clearDetails()">Clear</button>
-          <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary" (click)="closeDetails()">Close</button>
-        </div>
-        <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
-          <ng-container matColumnDef="slNo">
-            <mat-header-cell *matHeaderCellDef> Sl No </mat-header-cell>
-            <mat-cell *matCellDef="let test; let i = index"> {{ i + 1 }} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="DateandTimeofinjury">
-            <mat-header-cell *matHeaderCellDef> Date and Time of injury</mat-header-cell>
-            <mat-cell *matCellDef="let test"> {{ test.DateandTimeofinjury }} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="DateandTimeofArrivalatFirstAid">
-            <mat-header-cell *matHeaderCellDef> Date and Time of Arrival at FirstAid</mat-header-cell>
-            <mat-cell *matCellDef="let test"> {{ test.DateandTimeofArrivalatFirstAid }} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="DoesInjuryRequireHosipital">
-            <mat-header-cell *matHeaderCellDef>Does Injury Require Hosipital/Physician</mat-header-cell>
-            <mat-cell *matCellDef="let test"> {{ test.DoesInjuryRequireHosipital }} </mat-cell>
-          </ng-container>         
-          <ng-container matColumnDef="ReportorVisibleSymptomsofinjury">
-            <mat-header-cell *matHeaderCellDef> Report or Visible Symptoms of injury</mat-header-cell>
-            <mat-cell *matCellDef="let test"> {{ test.ReportorVisibleSymptomsofinjury }} </mat-cell>
-          </ng-container> 
-          <ng-container matColumnDef="SpecifytheIncident">
-            <mat-header-cell *matHeaderCellDef> Specify the Incident </mat-header-cell>
-            <mat-cell *matCellDef="let test"> {{ test.SpecifytheIncident }} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="Treatment">
-            <mat-header-cell *matHeaderCellDef> Treatment </mat-header-cell>
-            <mat-cell *matCellDef="let test"> {{ test.Treatment }} </mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="edit">
-            <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
-            <mat-cell *matCellDef="let test">
-              <button mat-icon-button color="primary" (click)="onEdit(test)">
-                <mat-icon>edit</mat-icon>
-              </button>
-            </mat-cell>
-          </ng-container>
-          
-          <mat-header-row *matHeaderRowDef="columnsToDisplay1"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: columnsToDisplay1;"></mat-row>
-        </table>
-</div>
-    </div>
-    
-    <!-- Form for DIETARY REQUIREMENTS-->
-    <div class="box-container" *ngIf="selectedOption === 'DIETARYREQUIREMENTS' || isFormVisible">
+<div class="form-container1">
+  <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style" [(ngModel)]="selectedOption">
+    <mat-button-toggle [value]="'VACINATIONRECORD'"
+      [class.active-button]="selectedOption === 'VACINATION RECORD'">VACINATION RECORD</mat-button-toggle>
+    <mat-button-toggle [value]="'FIRSTAID'" [class.active-button]="selectedOption === 'FIRST AID'">FIRST
+      AID</mat-button-toggle>
+    <mat-button-toggle [value]="'DIETARYREQUIREMENTS'"
+      [class.active-button]="selectedOption === 'DIETARY REQUIREMENTS'">DIETARY REQUIREMENTS</mat-button-toggle>
+  </mat-button-toggle-group>
+
+  <!-- Form for VACINATIONRECORD -->
+  <div class="box-container" *ngIf="selectedOption === 'VACINATIONRECORD' || isFormVisible">
+    <p>VACINATION RECORD:</p>
+    <div class="table-container">
       <div class="button-container1" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
-        <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary" (click)="saveDetails()">Save</button>
-        <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary" (click)="clearDetails()">Clear</button>
-        <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary" (click)="closeDetails()">Close</button>
+        <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary"
+          (click)="saveDetails()">Save</button>
+        <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary"
+          (click)="clearDetails()">Clear</button>
+        <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary"
+          (click)="closeDetails()">Close</button>
       </div>
-      <p>DIETARY REQUIREMENTS :</p>
-        <mat-grid-list cols="3" rowHeight="90px">
-          <mat-grid-tile cols="1">
-            <div class="input-field2">
-              <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                <mat-label>Veg/NonVeg</mat-label>
-                <input matInput [(ngModel)]="DIETARYREQUIREMENTS.VegNonveg" placeholder="Veg or Non Veg"/>
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-          
-          <mat-grid-tile>
-            <div class="input-field2">
-              <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                <mat-label>Food Intake</mat-label>
-                <input matInput [(ngModel)]="DIETARYREQUIREMENTS.foodintake" placeholder="Enter Food Intake"/>
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-          
-        </mat-grid-list>
-        <mat-grid-list cols="3" rowHeight="90px">
-          <mat-grid-tile cols="1">
-            <div class="input-field2">
-              <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                <mat-label>Food Avoid</mat-label>
-                <input matInput [(ngModel)]="DIETARYREQUIREMENTS.foodavoid" placeholder="Enter Food Avoid"/>
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <div class="input-field2">
-              <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
-                <mat-label>Other</mat-label>
-                <input matInput [(ngModel)]="DIETARYREQUIREMENTS.measles" placeholder="Enter Other Details"/>
-              </mat-form-field>
-            </div>
-          </mat-grid-tile>
-        </mat-grid-list>
-      </div>  
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="slNo">
+          <mat-header-cell *matHeaderCellDef> Sl No </mat-header-cell>
+          <mat-cell *matCellDef="let test; let i = index"> {{ i + 1 }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="dose">
+          <mat-header-cell *matHeaderCellDef>DOSE </mat-header-cell>
+          <mat-cell *matCellDef="let test"> {{ test.dose }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="dosage">
+          <mat-header-cell *matHeaderCellDef>DOSAGE</mat-header-cell>
+          <mat-cell *matCellDef="let test"> {{ test.dosage }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="lot">
+          <mat-header-cell *matHeaderCellDef> LOT NUMBER </mat-header-cell>
+          <mat-cell *matCellDef="let test"> {{ test.lot }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="manufacturer">
+          <mat-header-cell *matHeaderCellDef> MANUFAUTURER </mat-header-cell>
+          <mat-cell *matCellDef="let test"> {{ test.manufacturer }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+          <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+          <mat-cell *matCellDef="let test">
+            <button mat-icon-button color="primary" (click)="onEdit(test)">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnsToDisplay;"></mat-row>
+      </table>
+    </div>
   </div>
+  <!-- Form for FIRST AID -->
+  <div class="box-container" *ngIf="selectedOption === 'FIRSTAID' || isFormVisible">
+    <p>FIRST AID:</p>
+    <div class="table-container">
+      <div class="button-container1" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+        <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary"
+          (click)="saveDetails()">Save</button>
+        <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary"
+          (click)="clearDetails()">Clear</button>
+        <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary"
+          (click)="closeDetails()">Close</button>
+      </div>
+      <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
+        <ng-container matColumnDef="slNo">
+          <mat-header-cell *matHeaderCellDef> Sl No </mat-header-cell>
+          <mat-cell *matCellDef="let test; let i = index"> {{ i + 1 }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="DateandTimeofinjury">
+          <mat-header-cell *matHeaderCellDef> Date and Time of injury</mat-header-cell>
+          <mat-cell *matCellDef="let test"> {{ test.DateandTimeofinjury }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="DateandTimeofArrivalatFirstAid">
+          <mat-header-cell *matHeaderCellDef> Date and Time of Arrival at FirstAid</mat-header-cell>
+          <mat-cell *matCellDef="let test"> {{ test.DateandTimeofArrivalatFirstAid }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="DoesInjuryRequireHosipital">
+          <mat-header-cell *matHeaderCellDef>Does Injury Require Hosipital/Physician</mat-header-cell>
+          <mat-cell *matCellDef="let test"> {{ test.DoesInjuryRequireHosipital }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="ReportorVisibleSymptomsofinjury">
+          <mat-header-cell *matHeaderCellDef> Report or Visible Symptoms of injury</mat-header-cell>
+          <mat-cell *matCellDef="let test"> {{ test.ReportorVisibleSymptomsofinjury }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="SpecifytheIncident">
+          <mat-header-cell *matHeaderCellDef> Specify the Incident </mat-header-cell>
+          <mat-cell *matCellDef="let test"> {{ test.SpecifytheIncident }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Treatment">
+          <mat-header-cell *matHeaderCellDef> Treatment </mat-header-cell>
+          <mat-cell *matCellDef="let test"> {{ test.Treatment }} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="edit">
+          <mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+          <mat-cell *matCellDef="let test">
+            <button mat-icon-button color="primary" (click)="onEdit(test)">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="columnsToDisplay1"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnsToDisplay1;"></mat-row>
+      </table>
+    </div>
+  </div>
+
+  <!-- Form for DIETARY REQUIREMENTS-->
+  <div class="box-container" *ngIf="selectedOption === 'DIETARYREQUIREMENTS' || isFormVisible">
+    <div class="button-container1" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+      <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary"
+        (click)="saveDetails()">Save</button>
+      <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary"
+        (click)="clearDetails()">Clear</button>
+      <button mat-raised-button class="curve-button button-spacing1 curved-button" color="primary"
+        (click)="closeDetails()">Close</button>
+    </div>
+    <p>DIETARY REQUIREMENTS :</p>
+    <mat-grid-list cols="3" rowHeight="90px">
+      <mat-grid-tile cols="1">
+        <div class="input-field2">
+          <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Veg/NonVeg</mat-label>
+            <input matInput [(ngModel)]="DIETARYREQUIREMENTS.VegNonveg" placeholder="Veg or Non Veg" />
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <div class="input-field2">
+          <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Food Intake</mat-label>
+            <input matInput [(ngModel)]="DIETARYREQUIREMENTS.foodintake" placeholder="Enter Food Intake" />
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+    <mat-grid-list cols="3" rowHeight="90px">
+      <mat-grid-tile cols="1">
+        <div class="input-field2">
+          <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Food Avoid</mat-label>
+            <input matInput [(ngModel)]="DIETARYREQUIREMENTS.foodavoid" placeholder="Enter Food Avoid" />
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="input-field2">
+          <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+            <mat-label>Other</mat-label>
+            <input matInput [(ngModel)]="DIETARYREQUIREMENTS.measles" placeholder="Enter Other Details" />
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-homescreen',
   templateUrl: './homescreen.component.html',
-  styleUrls: ['./homescreen.component.css']
+  styleUrls: ['./homescreen.component.css'],
 })
-export class HomescreenComponent implements OnInit{
-
+export class HomescreenComponent implements OnInit {
   ngOnInit(): void {}
-  constructor( private router: Router){}
+  constructor(private router: Router) {}
 
-  userAuthenticated = true; 
+  userAuthenticated = true;
   username = 'Jayanth';
 
   isSidenavOpen = true;
@@ -26,53 +24,42 @@ export class HomescreenComponent implements OnInit{
   }
 
   menuItems = [
-    
     {
       parent: 'Registraion and Billing',
       expanded: false,
-      children: [
-        'Register Patient and Billing',
-      ]
+      children: ['Register Patient and Billing'],
     },
     {
       parent: 'Vitals',
       expanded: false,
-      children: [
-        'Patient Information',
-        'Patient Register',
-        'Doctors Desk'
-      ]
+      children: ['Patient Information', 'Patient Register', 'Doctors Desk'],
     },
     {
       parent: 'Test Master',
       expanded: false,
-      children: [
-        'Lab Master'
-      ]
+      children: ['Lab Master'],
     },
     {
-      parent: 'Inventory',
+      parent: 'Inventory Management',
       expanded: false,
       children: [
-        'Create Inventory',
-        'Update Inventory'
-      ]
+        'Products',
+        'Manufacturer',
+        'Supplier',
+        'Quantity',
+        'Shelf',
+        'Item Location',
+      ],
     },
     {
       parent: 'Reports',
       expanded: false,
-      children: [
-        'Result Entry',
-        'Result Validation',
-        'Final Report'
-      ]
+      children: ['Result Entry', 'Result Validation', 'Final Report'],
     },
     {
       parent: 'Dashboard',
       expanded: false,
-      children: [
-        'Admin Dashboard'
-      ]
+      children: ['Admin Dashboard'],
     },
     // Add more parent columns and their children as needed
   ];
@@ -81,21 +68,26 @@ export class HomescreenComponent implements OnInit{
     item.expanded = !item.expanded;
   }
 
-  expandChildItem(childItem: string) {
-    // Handle what happens when a child item is clicked
-    console.log('Child item clicked:', childItem);
+  expandChildItem(childItem: string, parentItem: string) {
+    let route = '';
+
+    if (parentItem === 'Inventory Management' && childItem === 'Item Location') {
+      route = 'homescreen/inventory/itemLocation'; // Path defined in your routing configuration
+    } else {
+      route = `homescreen/inventory/${childItem
+        .toLowerCase()
+        .replace(/ /g, '-')}`;
+    }
+
+    this.router.navigate([route]);
   }
-  
+
   expandAll() {
-    this.menuItems.forEach(item => (item.expanded = true));
+    this.menuItems.forEach((item) => (item.expanded = true));
   }
 
   collapseAll() {
-    this.menuItems.forEach(item => (item.expanded = false));
+    this.menuItems.forEach((item) => (item.expanded = false));
   }
-
-  // toggleAll() {
-  //   this.menuItems.forEach(item => (item.expanded = !item.expanded));
-  // }
 
 }
