@@ -8,21 +8,24 @@ import { BillingComponent } from './billing/billing.component';
 import { ForgotPasswordComponent } from './login/forgotpassword/forgotpassword.component';
 import { PatientRegistrationComponent } from './patientregistration/patient-registration.component';
 import { TestMasterComponent } from './test-master/test-master.component';
+import { DoctorDeskComponent } from './doctor-desk/doctor-desk.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'homescreen',
+  {
+    path: 'homescreen',
     component: HomescreenComponent,
     children: [
-      {path: 'home', component: HomeComponent},
+      { path: 'home', component: HomeComponent },
     ]
-},
+  },
   { path: 'login', component: LoginComponent },
-  { path: 'forgotPassword', component: ForgotPasswordComponent},
+  { path: 'forgotPassword', component: ForgotPasswordComponent },
   { path: 'homescreen', component: HomescreenComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'billing', component: BillingComponent },
-  {path: 'patientregister',component:PatientRegistrationComponent},
-  {path: 'testMaster',component:TestMasterComponent}
+  { path: 'patientregister', component: PatientRegistrationComponent },
+  { path: 'testMaster', component: TestMasterComponent },
+  { path: 'doctorDesk', component: DoctorDeskComponent }
 ];
 
 @NgModule({

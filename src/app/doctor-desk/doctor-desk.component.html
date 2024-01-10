@@ -1,0 +1,162 @@
+<div class="main-container">
+    <div class="left-container">
+        <div class="info-container">
+            <div class="box"><b>Patient Image</b></div>
+            <br>
+            <div class="info">
+                <p>Name</p>
+                <p>Age/Gen: 30/F</p>
+            </div>
+
+            <mat-form-field class="custom-dropdown">
+                <mat-label>Actions</mat-label>
+                <mat-select>
+                    <mat-option value="report">Report</mat-option>
+                    <mat-option value="print">Print</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="details-container">
+                <div class="detail-row">
+                    <p class="label">PID</p>
+                    <p class="value">Patient ID</p>
+                </div>
+                <div class="detail-row">
+                    <p class="label">Blood type</p>
+                    <p class="value">O+ positive</p>
+                </div>
+                <div class="detail-row">
+                    <p class="label">Allergies</p>
+                    <p class="value">Milk Positive</p>
+                </div>
+                <div class="detail-row">
+                    <p class="label">Diseases</p>
+                    <p class="value">Heart</p>
+                </div>
+                <div class="detail-row">
+                    <p class="label">Height</p>
+                    <p class="value">175cm</p>
+                </div>
+                <div class="detail-row">
+                    <p class="label">Weight</p>
+                    <p class="value">66kg</p>
+                </div>
+                <div class="detail-row">
+                    <p class="label">BMI</p>
+                    <p class="value">22</p>
+                </div>
+                <div class="detail-row">
+                    <p class="label">Last Visit</p>
+                    <p class="value">01-10-2023</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="box diet-box"><b>Diet</b></div>
+    </div>
+
+    <div class="right-container">
+        <div class="health-box">
+            <p><b>BP and Heart</b></p>
+        </div>
+        <div class="health-box">
+            <p><b>Body Temperature</b></p>
+        </div>
+        <div class="health-box">
+            <p><b>Glucose</b></p>
+        </div>
+
+        <div class="bottom-container">
+            <div class="diagnose-suggestion-container">
+                <div class="diagnose-box">
+                    <p><b>Diagnose</b></p>
+                </div>
+                <div class="suggestion-box">
+                    <p><b>Suggestion</b></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="search-box-container">
+            <mat-form-field class="search-box" appearance="outline" floatLabel="always" hideRequiredMarker>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Search">
+            </mat-form-field>
+        </div>
+
+
+        <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <ng-container matColumnDef="select">
+                <mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()"
+                        [disabled]="dataSource.data.length === 0">
+                    </mat-checkbox>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    <mat-checkbox (click)="$event.stopPropagation()" (change)="toggleSelection(row)"
+                        [checked]="selection.isSelected(row)">
+                    </mat-checkbox>
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="seqNo">
+                <mat-header-cell *matHeaderCellDef>Seq No</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    {{ row.seqNo }}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="morn">
+                <mat-header-cell *matHeaderCellDef>Morning</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    {{ row.morn }}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="noon">
+                <mat-header-cell *matHeaderCellDef>Noon</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    {{ row.noon }}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="eve">
+                <mat-header-cell *matHeaderCellDef>Evening</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    {{ row.eve }}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="day">
+                <mat-header-cell *matHeaderCellDef>Day</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    {{ row.day }}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="quantity">
+                <mat-header-cell *matHeaderCellDef>Quantity</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    {{ row.quantity }}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="stock">
+                <mat-header-cell *matHeaderCellDef>Stock</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    {{ row.stock }}
+                </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="extr">
+                <mat-header-cell *matHeaderCellDef>Extra</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                    {{ row.extr }}
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+</div>

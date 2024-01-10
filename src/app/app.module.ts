@@ -50,6 +50,7 @@ import { AddMethodComponent } from './test-master/method-test/add-method/add-met
 import { RefDialogComponent } from './test-master/ref-dialog/ref-dialog.component';
 import { ResultTypeComponent } from './test-master/result-type/result-type.component';
 import { HomescreenComponent } from './homescreen/homescreen.component';
+import { DoctorDeskComponent } from './doctor-desk/doctor-desk.component';
 
 
 @NgModule({
@@ -75,7 +76,8 @@ import { HomescreenComponent } from './homescreen/homescreen.component';
     AddDepartmentComponent,
     AddMethodComponent,
     RefDialogComponent,
-    ResultTypeComponent
+    ResultTypeComponent,
+    DoctorDeskComponent
   ],
   imports: [
     BrowserModule,
