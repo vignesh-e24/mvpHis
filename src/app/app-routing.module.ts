@@ -17,6 +17,7 @@ import { ItemLocationComponent } from './inventory/item-location/item-location.c
 import { QuantityComponent } from './inventory/quantity/quantity.component';
 import { LabpatientComponent } from './labpatient/labpatient.component';
 import { EditAddPatientComponent } from './edit-add-patient/edit-add-patient.component';
+import { DoctorDeskComponent } from './doctor-desk/doctor-desk.component';
 
 const routes: Routes = [
   {
@@ -57,7 +58,8 @@ const routes: Routes = [
   { path: 'billing', component: BillingComponent },
   { path: 'patientregister', component: PatientRegistrationComponent },
   { path: 'labpatient', component: LabpatientComponent },
-  { path: 'editaddpatient', component: EditAddPatientComponent }
+  { path: 'editaddpatient', component: EditAddPatientComponent },
+  { path: 'doctorDesk', component: DoctorDeskComponent }
 ];
 
 @NgModule({

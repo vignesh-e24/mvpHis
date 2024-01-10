@@ -65,7 +65,7 @@ import { QuantityComponent } from './inventory/quantity/quantity.component';
 import { ShelfComponent } from './inventory/shelf/shelf.component';
 import { ItemLocationComponent } from './inventory/item-location/item-location.component';
 import { DetailsPopupComponent } from './inventory/details-popup/details-popup.component';
-
+import { DoctorDeskComponent } from './doctor-desk/doctor-desk.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +104,8 @@ import { DetailsPopupComponent } from './inventory/details-popup/details-popup.c
     QuantityComponent,
     ShelfComponent,
     ItemLocationComponent,
-    DetailsPopupComponent
+    DetailsPopupComponent,
+    DoctorDeskComponent
   ],
   imports: [
     BrowserModule,
