@@ -1,0 +1,58 @@
+<h2 mat-dialog-title>Edit Patient</h2>
+<mat-dialog-content>
+    <div fxLayout="row" fxLayoutAlign="space-between start">
+        <form fxFlex="50">
+            <!-- <mat-form-field class="modal-field">
+                <input type="file" (change)="onImageSelected($event)" accept="image/*">
+                <img [src]="patientInfo.image" width="100" height="100" alt="Patient Image">
+                <button mat-button (click)="uploadImage()">Upload Image</button>
+            </mat-form-field> -->
+
+            <mat-form-field class="modal-field" appearance="outline" floatLabel="always" hideRequiredMarker>
+                <input matInput placeholder="Name" [(ngModel)]="patientInfo.name" name="name">
+            </mat-form-field>
+
+            <mat-form-field class="modal-field" appearance="outline" floatLabel="always" hideRequiredMarker>
+                <input matInput placeholder="Age" [(ngModel)]="patientInfo.age" name="age">
+                <!-- <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker></mat-datepicker> -->
+            </mat-form-field>
+
+            <mat-form-field class="modal-field" appearance="outline" floatLabel="always" hideRequiredMarker>
+                <input matInput placeholder="Lab ID" [(ngModel)]="patientInfo.labId" name="labId">
+            </mat-form-field>
+
+        </form>
+        <form fxFlex="50">
+            <mat-form-field class="modal-field" appearance="outline" floatLabel="always" hideRequiredMarker>
+                <input matInput placeholder="Mobile" [(ngModel)]="patientInfo.mobile" name="mobile">
+            </mat-form-field>
+
+            <mat-form-field class="modal-field" appearance="outline" floatLabel="always" hideRequiredMarker>
+                <input matInput placeholder="Email" [(ngModel)]="patientInfo.email" name="email">
+            </mat-form-field>
+
+            <mat-form-field class="modal-field" appearance="outline" floatLabel="always" hideRequiredMarker>
+                <input matInput placeholder="Address" [(ngModel)]="patientInfo.address" name="address">
+            </mat-form-field>
+        </form>
+        <form fxFlex="50">
+            <mat-form-field class="modal-field" appearance="outline" floatLabel="always" hideRequiredMarker>
+                <input matInput placeholder="Referral Type" [(ngModel)]="patientInfo.referralType" name="referralType">
+            </mat-form-field>
+
+            <mat-form-field class="modal-field" appearance="outline" floatLabel="always" hideRequiredMarker>
+                <input matInput placeholder="Referrer Type" [(ngModel)]="patientInfo.referrerType" name="referrerType">
+            </mat-form-field>
+
+            <mat-form-field class="modal-field" appearance="outline" floatLabel="always" hideRequiredMarker>
+                <input matInput placeholder="Registered Date Time" [(ngModel)]="patientInfo.registeredDateTime"
+                    name="registeredDateTime">
+            </mat-form-field>
+        </form>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button class="button" (click)="closeDialog()">Clear</button>
+    <button mat-button class="button" (click)="savePatientInfo()">Save</button>
+</mat-dialog-actions>

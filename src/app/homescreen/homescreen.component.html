@@ -1,5 +1,7 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
     <span fxFlex>Sky Tech</span>
     <span class="spacer"></span>
     <div class="user-info">
@@ -30,7 +32,7 @@
                     <mat-list-item (click)="toggleExpand(menuItem)">
                         <button mat-icon-button>
                             <mat-icon class="mat-icon-rtl-mirror">
-                                {{menuItem.expanded ? 'expand_more' : 'chevron_right'}}
+                                {{ menuItem.expanded ? "expand_more" : "chevron_right" }}
                             </mat-icon>
                         </button>
                         {{ menuItem.parent }}
@@ -41,12 +43,10 @@
                                 (click)="expandChildItem(childItem, menuItem.parent)">
                                 {{ childItem }}
                             </mat-list-item>
-
                         </mat-list>
                     </div>
                 </ng-container>
             </mat-nav-list>
-
         </mat-nav-list>
     </mat-sidenav>
 

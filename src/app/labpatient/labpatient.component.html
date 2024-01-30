@@ -1,0 +1,205 @@
+<div class="box-container">
+    <h2><b>LAB PATIENT INFO</b></h2>
+</div>
+
+<div class="box-container1">
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Search">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+</div>
+
+<div class="box-container2">
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Branch">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Department">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Services">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Ref">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Ref By">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Refer By">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Status">
+        <mat-icon matPrefix>search</mat-icon>
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Payment">
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="search-input" appearance="outline" floatLabel="always" hideRequiredMarker>
+        <input matInput placeholder="Print">
+        <button mat-icon-button matSuffix>
+            <mat-icon>arrow_drop_down</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <button mat-button class="urgent-button">Urgent</button>
+</div>
+
+<div class="box-container3">
+    <button mat-button class="clear-button" (click)="performSearch()">Search</button>
+    <button mat-button class="clear-button" (click)="clearSearch()">Clear</button>
+    <h3 class="total"> TOTAL PATIENT=45, SELF=78, DUE=25, CLIENT=32</h3>
+</div>
+<br>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef>
+            <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="isAllSelected()"
+                [indeterminate]="selection.hasValue() && !isAllSelected()" [disabled]="dataSource.data.length === 0">
+            </mat-checkbox>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <mat-checkbox (click)="$event.stopPropagation()" (change)="toggleSelection(row)"
+                [checked]="selection.isSelected(row)">
+            </mat-checkbox>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="labId">
+        <mat-header-cell *matHeaderCellDef>LAB ID </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <div class="lab-id-container">
+                {{ row.labId }}
+                <div class="button-row">
+                    <button mat-button class="clear-button1" (click)="openEditAddPatientModal(row)">Edit</button>
+                    <button mat-button class="clear-button1" (click)="openAddPatientModal(row)">Add</button>
+                </div>
+                <div class="button-row">
+                    <button mat-button class="clear-button1" (click)="openSampleModal(row)">Sample Collection</button>
+                    <button mat-button class="clear-button1" (click)="resultEntry(row)">Result Entry</button>
+                </div>
+            </div>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nameAgeGen">
+        <mat-header-cell *matHeaderCellDef>NAME AGE/GEN</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <div class="lab-id-container">
+                {{ row.nameAgeGen }}
+                <div class="button-row">
+                    <button mat-button class="clear-button1" (click)="sendSMS(row)">SMS</button>
+                    <button mat-button class="clear-button1" (click)="sendWhatsApp(row)">WhatsApp</button>
+                </div>
+                <div class="button-row">
+                    <button mat-button class="clear-button1" (click)="resultRecall(row)">Result Recall</button>
+                    <button mat-button class="clear-button1" (click)="openWorkListModal(row)">WorkList</button>
+                </div>
+            </div>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="pid">
+        <mat-header-cell *matHeaderCellDef>PID</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <div class="lab-id-container">
+                {{ row.pid }}
+                <div class="button-row">
+                    <button mat-button class="clear-button1" (click)="sendEmail(row)">Email</button>
+                    <button mat-button class="clear-button1" (click)="openDetailModal(row)">Details</button>
+                </div>
+                <div class="button-row">
+                    <button mat-button class="clear-button1" (click)="billPrint(row)">Bill Print</button>
+                    <button mat-button class="clear-button1" (click)="editHistory(row)">History</button>
+                </div>
+            </div>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dateTime">
+        <mat-header-cell *matHeaderCellDef>DATETIME</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <div class="lab-id-container1">
+                {{ row.dateTime }}
+                <div class="button-row">
+
+                </div>
+            </div>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="branch">
+        <mat-header-cell *matHeaderCellDef>BRANCH</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <div class="lab-id-container1">
+                {{ row.branch }}
+                <div class="button-row"></div>
+            </div>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="refBy">
+        <mat-header-cell *matHeaderCellDef>REF BY</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <div class="lab-id-container1">
+                {{ row.refBy }}
+                <div class="button-row"></div>
+            </div>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="investigation">
+        <mat-header-cell *matHeaderCellDef>INVESTIGATION</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <div class="lab-id-container1">
+                {{ row.investigation }}
+                <div class="button-row"></div>
+            </div>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

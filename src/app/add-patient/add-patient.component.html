@@ -1,0 +1,115 @@
+<h2 mat-dialog-title>Add Patient</h2>
+<div class="add-patient-container">
+    <mat-form-field appearance="outline" class="search-input">
+        <input matInput placeholder="Search">
+        <button mat-icon-button matPrefix>
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <button mat-button class="reset-button">Reset</button><br>
+
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="seqNo">
+            <mat-header-cell *matHeaderCellDef>Seq No</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.seqNo }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="investigation">
+            <mat-header-cell *matHeaderCellDef>Investigation</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.investigation }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="collectedDate">
+            <mat-header-cell *matHeaderCellDef>Collected DateTime</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.collectedDate }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="tatDate">
+            <mat-header-cell *matHeaderCellDef>Tat DateTime</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.tatDate }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+            <mat-header-cell *matHeaderCellDef>Quantity</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.quantity }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="discount">
+            <mat-header-cell *matHeaderCellDef>Discount</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.discount }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{ row.price }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                <button mat-icon-button (click)="deleteRow(row)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+
+
+    <div class="box-container">
+        <div class="button">
+            <button mat-button class="clear-button">Change</button><br>
+            <div class="payment-container">
+                <mat-form-field class="payment-input" appearance="outline">
+                    <input matInput placeholder="Cash">
+                    <hr>
+                    <input matInput placeholder="Cash Description">
+                </mat-form-field>
+                <mat-form-field class="payment-input" appearance="outline">
+                    <input matInput placeholder="Card">
+                    <hr>
+                    <input matInput placeholder="Card Description">
+                </mat-form-field>
+                <mat-form-field class="payment-input" appearance="outline">
+                    <input matInput placeholder="Online">
+                    <hr>
+                    <input matInput placeholder="Online Description">
+                </mat-form-field>
+                <mat-form-field class="payment-input" appearance="outline">
+                    <input matInput placeholder="Cheque">
+                    <hr>
+                    <input matInput placeholder="Cheque Description">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="button">
+            <button mat-button class="clear-button">Update</button><br>
+            <div class="payment-container">
+                <mat-form-field class="payment-input" appearance="outline">
+                    <input matInput placeholder="Cash">
+                    <hr>
+                    <input matInput placeholder="Cash Description">
+                </mat-form-field>
+                <mat-form-field class="payment-input" appearance="outline">
+                    <input matInput placeholder="Card">
+                    <hr>
+                    <input matInput placeholder="Card Description">
+                </mat-form-field>
+                <mat-form-field class="payment-input" appearance="outline">
+                    <input matInput placeholder="Online">
+                    <hr>
+                    <input matInput placeholder="Online Description">
+                </mat-form-field>
+                <mat-form-field class="payment-input" appearance="outline">
+                    <input matInput placeholder="Cheque">
+                    <hr>
+                    <input matInput placeholder="Cheque Description">
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</div>
